@@ -1,0 +1,145 @@
+/* Layout: single page, max 1140px column; hero = text left + portrait right; sections stacked.
+   Colours are RGB triplets so Tailwind can apply opacity (rgb(var(--x) / .5)). Dark is the default theme. */
+:root {
+  --bg: 11 18 32;        /* page background */
+  --panel: 17 26 46;     /* cards */
+  --fg: 231 236 245;     /* main text */
+  --muted: 147 160 184;  /* secondary text */
+  --line: 148 163 184;   /* borders (used at low opacity) */
+  --accent: 124 156 255; /* soft indigo */
+  --accent2: 52 211 180; /* teal */
+  --glow: 124 156 255;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: 246 248 252; --panel: 255 255 255; --fg: 15 23 42; --muted: 82 96 122;
+    --line: 15 23 42; --accent: 59 91 219; --accent2: 14 159 135; --glow: 59 91 219;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: 246 248 252; --panel: 255 255 255; --fg: 15 23 42; --muted: 82 96 122;
+  --line: 15 23 42; --accent: 59 91 219; --accent2: 14 159 135; --glow: 59 91 219;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: 11 18 32; --panel: 17 26 46; --fg: 231 236 245; --muted: 147 160 184;
+  --line: 148 163 184; --accent: 124 156 255; --accent2: 52 211 180; --glow: 124 156 255;
+  color-scheme: dark;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, .font-display { font-family: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif; text-wrap: balance; }
+.font-mono { font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace; }
+
+/* soft ambient light behind the hero */
+.ambient {
+  background:
+    radial-gradient(600px 380px at 85% 10%, rgb(var(--accent) / .16), transparent 70%),
+    radial-gradient(520px 340px at 5% 30%, rgb(var(--accent2) / .10), transparent 70%);
+}
+
+/* cards: thin border, lift on hover */
+.card {
+  background: rgb(var(--panel));
+  border: 1px solid rgb(var(--line) / .14);
+  border-radius: 18px;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgb(var(--accent) / .45);
+  box-shadow: 0 18px 40px -18px rgb(var(--glow) / .35);
+}
+
+.chip {
+  display: inline-flex; align-items: center;
+  padding: .28rem .65rem; border-radius: 999px;
+  font-size: .78rem; line-height: 1.2;
+  background: rgb(var(--accent) / .10);
+  color: rgb(var(--fg) / .88);
+  border: 1px solid rgb(var(--accent) / .18);
+}
+
+.eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  color: rgb(var(--accent2));
+}
+
+/* portrait frame with an accent ring behind it */
+.portrait { position: relative; }
+.portrait::before {
+  content: ""; position: absolute; inset: -14px 14px 14px -14px;
+  border-radius: 28px; border: 1.5px solid rgb(var(--accent) / .45);
+}
+.portrait::after {
+  content: ""; position: absolute; inset: 12% 8%; z-index: -1;
+  background: rgb(var(--glow) / .35); filter: blur(60px); border-radius: 50%;
+}
+
+/* navbar glass */
+.nav-glass {
+  background: rgb(var(--bg) / .72);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid rgb(var(--line) / .10);
+}
+.nav-link { color: rgb(var(--muted)); transition: color .2s; position: relative; }
+.nav-link:hover, .nav-link.active { color: rgb(var(--fg)); }
+.nav-link.active::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  border-radius: 2px; background: rgb(var(--accent));
+}
+
+.btn-primary {
+  background: rgb(var(--accent)); color: rgb(var(--bg));
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -10px rgb(var(--accent) / .8); }
+.btn-ghost { border: 1px solid rgb(var(--line) / .25); color: rgb(var(--fg)); transition: border-color .2s, background .2s; }
+.btn-ghost:hover { border-color: rgb(var(--accent) / .6); background: rgb(var(--accent) / .08); }
+
+.filter-btn { border: 1px solid rgb(var(--line) / .2); color: rgb(var(--muted)); transition: all .2s; }
+.filter-btn:hover { color: rgb(var(--fg)); }
+.filter-btn.active { background: rgb(var(--accent)); border-color: rgb(var(--accent)); color: rgb(var(--bg)); }
+
+/* project screenshot area + placeholder when an image is missing */
+.shot { aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; border-radius: 12px; background: rgb(var(--bg)); border: 1px solid rgb(var(--line) / .12); }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.shot-placeholder {
+  width: 100%; height: 100%; display: grid; place-items: center; text-align: center; padding: 1rem;
+  background:
+    linear-gradient(135deg, rgb(var(--accent) / .16), rgb(var(--accent2) / .10)),
+    repeating-linear-gradient(0deg, transparent 0 22px, rgb(var(--line) / .06) 22px 23px);
+  color: rgb(var(--fg) / .85);
+}
+
+/* education timeline */
+.timeline { border-left: 2px solid rgb(var(--line) / .18); }
+.timeline-dot { position: absolute; left: calc(-2rem - 9px); top: 6px; width: 16px; height: 16px; border-radius: 50%; background: rgb(var(--bg)); border: 3px solid rgb(var(--accent)); }
+
+.pulse { position: relative; }
+.pulse::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgb(var(--accent2)); animation: pulse 2s ease-out infinite; }
+@keyframes pulse { from { transform: scale(1); opacity: .6; } to { transform: scale(2.6); opacity: 0; } }
+
+/* reveal on scroll: content stays readable if JS never runs */
+.reveal { transition: transform .6s ease, opacity .6s ease; }
+.js .reveal:not(.in) { transform: translateY(14px); opacity: .6; }
+
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal:not(.in) { transform: none; opacity: 1; }
+  .pulse::after { display: none; }
+}

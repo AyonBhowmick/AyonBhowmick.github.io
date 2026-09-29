@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Ayon Kumar Bhowmick Ovi | Portfolio</title>
+  <meta name="description" content="Portfolio of Ayon Kumar Bhowmick Ovi, CSE undergraduate at AIUB working on AI/ML, software development and research." />
+  <meta name="author" content="Ayon Kumar Bhowmick Ovi" />
+
+  <!-- Open Graph (link preview) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ayon Kumar Bhowmick Ovi | Portfolio" />
+  <meta property="og:description" content="CSE Undergraduate at AIUB · AI/ML · Software Development · Research" />
+  <meta property="og:image" content="assets/img/avatar.jpg" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+  <!-- Set theme before paint (no flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('ayon-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (pre-built) + custom theme styles -->
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- ================= NAVBAR ================= -->
+  <header class="nav-glass fixed inset-x-0 top-0 z-50">
+    <nav class="mx-auto flex max-w-site items-center justify-between gap-4 px-4 py-3 sm:px-6" aria-label="Main">
+      <a href="#home" class="flex items-center gap-3 min-w-0">
+        <img src="assets/img/avatar.jpg" alt="" class="h-9 w-9 rounded-full object-cover ring-2 ring-accent/40" />
+        <span class="font-display truncate text-[15px] font-semibold">Ayon Bhowmick</span>
+      </a>
+
+      <ul class="hidden items-center gap-7 text-sm lg:flex">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#research">Research</a></li>
+        <li><a class="nav-link" href="#education">Education</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button type="button" data-theme-toggle class="btn-ghost grid h-10 w-10 place-items-center rounded-full" aria-label="Toggle theme">
+          <svg class="icon-sun h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button id="menu-btn" type="button" class="btn-ghost grid h-10 w-10 place-items-center rounded-full lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="border-t border-line/10 px-4 pb-4 lg:hidden" hidden>
+      <ul class="flex flex-col gap-1 pt-2 text-[15px]">
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-accent/10" href="#about">About</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-accent/10" href="#skills">Skills</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-accent/10" href="#projects">Projects</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-accent/10" href="#research">Research</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-accent/10" href="#education">Education</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-accent/10" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section id="home" class="ambient pt-28 pb-16 sm:pt-32">
+      <div class="mx-auto grid max-w-site items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_.85fr]">
+        <div class="reveal order-2 min-w-0 lg:order-1">
+          <p class="inline-flex items-center gap-2 rounded-full border border-accent2/30 bg-accent2/10 px-3 py-1.5 text-xs font-medium text-accent2">
+            <span class="pulse inline-block h-2 w-2 rounded-full bg-accent2"></span>
+            Open to internships &amp; entry-level roles
+          </p>
+
+          <h1 class="mt-6 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            Ayon Kumar<br />Bhowmick <span class="text-accent">Ovi</span>
+          </h1>
+          <p class="font-mono mt-5 text-sm text-muted sm:text-[15px]">
+            CSE Undergraduate · AI/ML · Software Development · Research
+          </p>
+          <p class="mt-5 max-w-xl text-[17px] leading-relaxed text-fg/85">
+            I build practical software and apply machine learning to real-world problems, especially in healthcare and forecasting.
+            Currently studying Computer Science and Engineering at AIUB.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" class="btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold">
+              View Projects
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="assets/Ayon_CV.pdf" target="_blank" rel="noopener" class="btn-ghost inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              Download CV
+            </a>
+          </div>
+
+          <div class="mt-7 flex items-center gap-3">
+            <a href="https://github.com/AyonBhowmick" target="_blank" rel="noopener" aria-label="GitHub" class="btn-ghost grid h-10 w-10 place-items-center rounded-full">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ayon-bhowmick/" target="_blank" rel="noopener" aria-label="LinkedIn" class="btn-ghost grid h-10 w-10 place-items-center rounded-full">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="#contact" aria-label="Email" class="btn-ghost grid h-10 w-10 place-items-center rounded-full">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal order-1 mx-auto w-full max-w-[300px] sm:max-w-[340px] lg:order-2 lg:max-w-[380px]">
+          <div class="portrait">
+            <img src="assets/img/profile.jpg" alt="Portrait of Ayon Kumar Bhowmick Ovi" width="720" height="900"
+                 class="relative aspect-[4/5] w-full rounded-[24px] object-cover shadow-2xl" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick facts -->
+      <div class="mx-auto mt-14 max-w-site px-4 sm:px-6">
+        <dl class="reveal grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          <div class="card p-5"><dt class="text-xs uppercase tracking-wider text-muted">CGPA</dt><dd class="font-display mt-1 text-2xl font-bold tabular-nums">3.71<span class="text-base font-semibold text-muted"> / 4.00</span></dd></div>
+          <div class="card p-5"><dt class="text-xs uppercase tracking-wider text-muted">Projects</dt><dd class="font-display mt-1 text-2xl font-bold tabular-nums">4</dd></div>
+          <div class="card p-5"><dt class="text-xs uppercase tracking-wider text-muted">Research</dt><dd class="font-display mt-1 text-2xl font-bold">Published</dd></div>
+          <div class="card p-5"><dt class="text-xs uppercase tracking-wider text-muted">IEEE</dt><dd class="font-display mt-1 text-2xl font-bold">Student Member</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="py-20">
+      <div class="mx-auto grid max-w-site gap-10 px-4 sm:px-6 lg:grid-cols-[1.3fr_1fr]">
+        <div class="reveal min-w-0">
+          <p class="eyebrow">About</p>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">A developer who also does research</h2>
+          <div class="mt-6 max-w-[65ch] space-y-4 text-[16px] leading-relaxed text-fg/85">
+            <p>I'm a Computer Science and Engineering undergraduate at American International University-Bangladesh (AIUB), expected to graduate in October 2026.</p>
+            <p>Through coursework, hands-on projects and conference research, I've worked on desktop and web applications, database systems, data analysis and machine learning. My research focuses on deep learning for medical imaging and on making models explainable.</p>
+            <p>I enjoy solving problems, learning new technologies and working in teams to build reliable, useful software.</p>
+          </div>
+        </div>
+
+        <aside class="reveal card h-fit p-6 sm:p-7">
+          <p class="flex items-center gap-2 text-sm font-semibold">
+            <span class="pulse inline-block h-2 w-2 rounded-full bg-accent2"></span>
+            Currently focused on
+          </p>
+          <ul class="mt-5 space-y-3.5 text-[15px] text-fg/85">
+            <li class="flex gap-3"><span class="mt-0.5 text-accent2">✓</span>Hybrid CNN–Mamba and CNN–Transformer models</li>
+            <li class="flex gap-3"><span class="mt-0.5 text-accent2">✓</span>Explainable AI (SHAP, Grad-CAM, LIME)</li>
+            <li class="flex gap-3"><span class="mt-0.5 text-accent2">✓</span>Handling class imbalance in medical data</li>
+            <li class="flex gap-3"><span class="mt-0.5 text-accent2">✓</span>Software testing and networking fundamentals</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="py-20">
+      <div class="mx-auto max-w-site px-4 sm:px-6">
+        <div class="reveal">
+          <p class="eyebrow">Skills</p>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Tools I work with</h2>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal card card-hover p-6">
+            <h3 class="text-lg font-semibold">Programming</h3>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">C++</span><span class="chip">C#</span><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">PHP</span></div>
+          </article>
+          <article class="reveal card card-hover p-6">
+            <h3 class="text-lg font-semibold">AI / Machine Learning</h3>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="chip">PyTorch</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">SHAP</span><span class="chip">Grad-CAM</span></div>
+          </article>
+          <article class="reveal card card-hover p-6">
+            <h3 class="text-lg font-semibold">Web &amp; Databases</h3>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">.NET</span><span class="chip">Windows Forms</span><span class="chip">MySQL</span><span class="chip">SQL Server</span></div>
+          </article>
+          <article class="reveal card card-hover p-6">
+            <h3 class="text-lg font-semibold">Testing &amp; QA</h3>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="chip">Manual Testing</span><span class="chip">Test Case Design</span><span class="chip">Selenium</span></div>
+          </article>
+          <article class="reveal card card-hover p-6">
+            <h3 class="text-lg font-semibold">Networking</h3>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="chip">TCP/IP</span><span class="chip">OSI</span><span class="chip">Subnetting</span><span class="chip">VLANs</span><span class="chip">OSPF</span><span class="chip">NAT · DHCP · DNS</span><span class="chip">Packet Tracer</span></div>
+          </article>
+          <article class="reveal card card-hover p-6">
+            <h3 class="text-lg font-semibold">Tools</h3>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">Visual Studio</span><span class="chip">Jupyter</span><span class="chip">Google Colab</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="py-20">
+      <div class="mx-auto max-w-site px-4 sm:px-6">
+        <div class="reveal flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="eyebrow">Projects</p>
+            <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Things I've built</h2>
+          </div>
+          <div class="flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+            <button type="button" class="filter-btn active rounded-full px-4 py-2 text-sm" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-btn rounded-full px-4 py-2 text-sm" data-filter="desktop" aria-pressed="false">Desktop</button>
+            <button type="button" class="filter-btn rounded-full px-4 py-2 text-sm" data-filter="web" aria-pressed="false">Web</button>
+            <button type="button" class="filter-btn rounded-full px-4 py-2 text-sm" data-filter="game" aria-pressed="false">Game</button>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-2">
+          <!-- Project: University Management System -->
+          <article class="reveal card card-hover flex flex-col p-5" data-category="desktop">
+            <div class="shot">
+              <img src="assets/img/projects/university-management.jpg" alt="University Management System screenshot" />
+              <div class="shot-placeholder" hidden><div><p class="font-display text-lg font-semibold">University Management System</p><p class="font-mono mt-1 text-xs text-muted">Java · Swing</p></div></div>
+            </div>
+            <div class="mt-5 flex items-center gap-2 text-xs"><span class="chip">Desktop</span><span class="font-mono text-muted">Java · Swing · File I/O</span></div>
+            <h3 class="mt-3 text-xl font-semibold">University Management System</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-fg/80">Desktop app for managing students, teachers, sections, fees and university funds.</p>
+            <ul class="mt-3 space-y-1.5 text-sm text-muted">
+              <li>• Role-based login and sign-up</li>
+              <li>• Fee structure and fund management modules</li>
+              <li>• Persistent data storage with File I/O</li>
+            </ul>
+            <a href="https://github.com/AyonBhowmick/University_Management_System" target="_blank" rel="noopener" class="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-accent hover:underline">View on GitHub →</a>
+          </article>
+
+          <!-- Project: Cafe Shop -->
+          <article class="reveal card card-hover flex flex-col p-5" data-category="desktop">
+            <div class="shot">
+              <img src="assets/img/projects/cafe-shop.jpg" alt="Cafe Shop Management System admin dashboard" />
+              <div class="shot-placeholder" hidden><div><p class="font-display text-lg font-semibold">Cafe Shop Management System</p><p class="font-mono mt-1 text-xs text-muted">C# · SQL Server</p></div></div>
+            </div>
+            <div class="mt-5 flex items-center gap-2 text-xs"><span class="chip">Desktop</span><span class="font-mono text-muted">C# · .NET · SQL Server</span></div>
+            <h3 class="mt-3 text-xl font-semibold">Cafe Shop Management System</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-fg/80">Café operations system with separate Admin and Cashier roles.</p>
+            <ul class="mt-3 space-y-1.5 text-sm text-muted">
+              <li>• Admin dashboard with income and customer totals</li>
+              <li>• Product, user and order management</li>
+              <li>• Billing, payments and receipt generation</li>
+            </ul>
+            <a href="https://github.com/AyonBhowmick/Cafe_Shop_Management_System" target="_blank" rel="noopener" class="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-accent hover:underline">View on GitHub →</a>
+          </article>
+
+          <!-- Project: SkillSwap -->
+          <article class="reveal card card-hover flex flex-col p-5" data-category="web">
+            <div class="shot">
+              <img src="assets/img/projects/skillswap.jpg" alt="SkillSwap Connect screenshot" />
+              <div class="shot-placeholder" hidden><div><p class="font-display text-lg font-semibold">SkillSwap Connect</p><p class="font-mono mt-1 text-xs text-muted">PHP · MySQL</p></div></div>
+            </div>
+            <div class="mt-5 flex items-center gap-2 text-xs"><span class="chip">Web</span><span class="font-mono text-muted">PHP · MySQL · JavaScript</span></div>
+            <h3 class="mt-3 text-xl font-semibold">SkillSwap Connect</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-fg/80">Web platform that connects learners and mentors for skill exchange and paid courses.</p>
+            <ul class="mt-3 space-y-1.5 text-sm text-muted">
+              <li>• Roles for Learners, Mentors and Admins</li>
+              <li>• Course requests, messaging and progress tracking</li>
+              <li>• Certificate generation</li>
+            </ul>
+            <a href="https://github.com/AyonBhowmick/SkillSwap-Connect" target="_blank" rel="noopener" class="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-accent hover:underline">View on GitHub →</a>
+          </article>
+
+          <!-- Project: Virus Invaders -->
+          <article class="reveal card card-hover flex flex-col p-5" data-category="game">
+            <div class="shot">
+              <img src="assets/img/projects/virus-invaders.jpg" alt="Virus Invaders gameplay screenshot" />
+              <div class="shot-placeholder" hidden><div><p class="font-display text-lg font-semibold">Virus Invaders</p><p class="font-mono mt-1 text-xs text-muted">C++ · OpenGL</p></div></div>
+            </div>
+            <div class="mt-5 flex items-center gap-2 text-xs"><span class="chip">Game</span><span class="font-mono text-muted">C++ · OpenGL · GLUT</span></div>
+            <h3 class="mt-3 text-xl font-semibold">Virus Invaders</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-fg/80">2D arcade game where the player fights viruses and collects vaccines.</p>
+            <ul class="mt-3 space-y-1.5 text-sm text-muted">
+              <li>• Real-time movement and collision detection</li>
+              <li>• Health, score and vaccine collection</li>
+              <li>• Five levels with dynamic weather effects</li>
+            </ul>
+            <a href="https://github.com/AyonBhowmick/VIRUS_INVADERS" target="_blank" rel="noopener" class="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-accent hover:underline">View on GitHub →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESEARCH ================= -->
+    <section id="research" class="py-20">
+      <div class="mx-auto max-w-site px-4 sm:px-6">
+        <div class="reveal">
+          <p class="eyebrow">Research</p>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Publications &amp; research areas</h2>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="chip">Deep Learning</span><span class="chip">Medical Imaging</span><span class="chip">CNN–Mamba Hybrids</span>
+            <span class="chip">Vision Transformers</span><span class="chip">Explainable AI</span><span class="chip">Class Imbalance</span><span class="chip">Time-Series Forecasting</span>
+          </div>
+        </div>
+
+        <ol class="mt-10 space-y-4">
+          <li class="reveal card card-hover p-6">
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <span class="rounded-full bg-accent2/15 px-2.5 py-1 font-semibold text-accent2">Accepted</span>
+              <span class="font-mono text-muted">Conference paper</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold leading-snug">Daily Peak Demand Forecasting in Bangladesh Using Leakage-Aware Machine Learning, Deep Learning, and a Hybrid RF-Naive Model</h3>
+            <p class="mt-2 text-sm text-muted">Day-ahead peak electricity demand forecasting with leakage-aware validation, comparing ML, DL and a hybrid RF-Naive model.</p>
+          </li>
+          <!-- TODO: add your SPICSCON and ICCIT papers here, copying the <li> block above
+               (change the badge to "Published", add year · venue, and wrap the title in a link to the paper). -->
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" class="py-20">
+      <div class="mx-auto grid max-w-site gap-10 px-4 sm:px-6 lg:grid-cols-[1.4fr_1fr]">
+        <div class="reveal min-w-0">
+          <p class="eyebrow">Education</p>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Where I've studied</h2>
+
+          <ol class="timeline relative mt-10 space-y-10 pl-8">
+            <li class="relative">
+              <span class="timeline-dot"></span>
+              <p class="font-mono text-xs text-accent2">Jan 2023 – Oct 2026 (expected)</p>
+              <h3 class="mt-1 text-lg font-semibold">B.Sc. in Computer Science and Engineering</h3>
+              <p class="text-[15px] text-fg/80">American International University-Bangladesh (AIUB), Dhaka</p>
+              <p class="mt-2 inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-semibold tabular-nums">CGPA 3.71 / 4.00</p>
+            </li>
+            <li class="relative">
+              <span class="timeline-dot"></span>
+              <p class="font-mono text-xs text-accent2">2019 – 2021</p>
+              <h3 class="mt-1 text-lg font-semibold">Higher Secondary Certificate (HSC)</h3>
+              <p class="text-[15px] text-fg/80">Dhaka Imperial College, Dhaka</p>
+              <p class="mt-2 inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-semibold tabular-nums">GPA 5.00 / 5.00</p>
+            </li>
+            <li class="relative">
+              <span class="timeline-dot"></span>
+              <p class="font-mono text-xs text-accent2">2017 – 2019</p>
+              <h3 class="mt-1 text-lg font-semibold">Secondary School Certificate (SSC)</h3>
+              <p class="text-[15px] text-fg/80">National Ideal School, Dhaka</p>
+              <p class="mt-2 inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-semibold tabular-nums">GPA 4.78 / 5.00</p>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="reveal card h-fit p-6 sm:p-7">
+          <h3 class="text-lg font-semibold">Certifications &amp; Activities</h3>
+          <ul class="mt-5 space-y-5">
+            <li>
+              <p class="font-semibold">Cisco Networking Academy</p>
+              <p class="text-sm text-muted">Networking training and certification</p>
+            </li>
+            <li>
+              <p class="font-semibold">IEEE SPAVe 7.0</p>
+              <p class="text-sm text-muted">Student Professional Awareness Venture, IEEE AIUB Student Branch</p>
+            </li>
+            <li>
+              <p class="font-semibold">Student Member, IEEE AIUB Student Branch</p>
+              <p class="text-sm text-muted">2026 – Present</p>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="py-20">
+      <div class="mx-auto max-w-site px-4 sm:px-6">
+        <div class="reveal card relative overflow-hidden p-6 sm:p-10">
+          <div class="ambient pointer-events-none absolute inset-0"></div>
+          <div class="relative grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+            <div class="min-w-0">
+              <p class="eyebrow">Contact</p>
+              <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Let's work together</h2>
+              <p class="mt-4 max-w-md text-[16px] leading-relaxed text-fg/85">
+                I'm looking for internships and entry-level roles in software engineering, machine learning, data science, QA or research. The fastest way to reach me is email.
+              </p>
+              <a href="mailto:ayon312002@gmail.com" class="btn-primary mt-7 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                Email me
+              </a>
+            </div>
+
+            <ul class="grid gap-3 min-w-0">
+              <li class="rounded-xl border border-line/15 bg-bg/60 p-4">
+                <p class="text-xs uppercase tracking-wider text-muted">Email</p>
+                <div class="mt-1 flex flex-wrap items-center justify-between gap-2">
+                  <span id="email-text" class="font-mono break-all text-[15px]">ayon312002@gmail.com</span>
+                  <button id="copy-email" type="button" data-email="ayon312002@gmail.com" class="btn-ghost rounded-full px-3 py-1 text-xs font-semibold"><span>Copy</span></button>
+                </div>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/ayon-bhowmick/" target="_blank" rel="noopener" class="block rounded-xl border border-line/15 bg-bg/60 p-4 transition hover:border-accent/50">
+                  <p class="text-xs uppercase tracking-wider text-muted">LinkedIn</p>
+                  <p class="mt-1 text-[15px]">linkedin.com/in/ayon-bhowmick ↗</p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/AyonBhowmick" target="_blank" rel="noopener" class="block rounded-xl border border-line/15 bg-bg/60 p-4 transition hover:border-accent/50">
+                  <p class="text-xs uppercase tracking-wider text-muted">GitHub</p>
+                  <p class="mt-1 text-[15px]">github.com/AyonBhowmick ↗</p>
+                </a>
+              </li>
+              <li class="rounded-xl border border-line/15 bg-bg/60 p-4">
+                <p class="text-xs uppercase tracking-wider text-muted">Location</p>
+                <p class="mt-1 text-[15px]">Dhaka, Bangladesh</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-line/10 py-8">
+    <div class="mx-auto flex max-w-site flex-wrap items-center justify-between gap-3 px-4 text-sm text-muted sm:px-6">
+      <p>© <span id="year">2026</span> Ayon Kumar Bhowmick Ovi</p>
+      <a href="#home" class="hover:text-fg">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
