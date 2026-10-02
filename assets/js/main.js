@@ -72,15 +72,39 @@
     });
   });
 
-  /* ---------- Screenshot placeholder if an image is missing ---------- */
-  document.querySelectorAll('.shot img').forEach(function (img) {
-    function fail() {
-      img.hidden = true;
-      var ph = img.parentElement.querySelector('.shot-placeholder');
-      if (ph) ph.hidden = false;
+  /* ---------- Project screenshot sliders ---------- */
+  document.querySelectorAll('[data-slider]').forEach(function (shot) {
+    var track = shot.querySelector('.slides');
+    var ph = shot.querySelector('.shot-placeholder');
+    var prev = shot.querySelector('.prev'), next = shot.querySelector('.next');
+    var count = shot.querySelector('.slide-count');
+
+    function imgs() { return track.querySelectorAll('img'); }
+    function update() {
+      var n = imgs().length;
+      var i = n ? Math.round(track.scrollLeft / track.clientWidth) + 1 : 0;
+      var multi = n > 1;
+      prev.hidden = next.hidden = count.hidden = !multi;
+      if (multi) count.textContent = i + ' / ' + n;
+      track.hidden = n === 0;
+      if (ph) ph.hidden = n !== 0;
     }
-    if (img.complete && img.naturalWidth === 0) fail();
-    img.addEventListener('error', fail);
+    function go(dir) {
+      var n = imgs().length; if (!n) return;
+      var i = Math.round(track.scrollLeft / track.clientWidth) + dir;
+      if (i < 0) i = n - 1; if (i >= n) i = 0;
+      track.scrollTo({ left: i * track.clientWidth });
+    }
+    // drop any screenshot that fails to load; show the placeholder if none are left
+    imgs().forEach(function (img) {
+      function fail() { img.remove(); update(); }
+      if (img.complete && img.naturalWidth === 0) fail();
+      else img.addEventListener('error', fail);
+    });
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+    update();
   });
 
   /* ---------- Copy email ---------- */
@@ -115,4 +139,18 @@
   /* ---------- Footer year ---------- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
+})();
+
+/* v2: scroll progress + back-to-top */
+(function () {
+  var bar = document.getElementById('progress');
+  var top = document.getElementById('to-top');
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? window.scrollY / h : 0;
+    if (bar) bar.style.transform = 'scaleX(' + p + ')';
+    if (top) top.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();

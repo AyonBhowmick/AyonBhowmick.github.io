@@ -1,31 +1,22 @@
 /* Layout: single page, max 1140px column; hero = text left + portrait right; sections stacked.
    Colours are RGB triplets so Tailwind can apply opacity (rgb(var(--x) / .5)). Dark is the default theme. */
 :root {
-  --bg: 11 18 32;        /* page background */
-  --panel: 17 26 46;     /* cards */
-  --fg: 231 236 245;     /* main text */
-  --muted: 147 160 184;  /* secondary text */
-  --line: 148 163 184;   /* borders (used at low opacity) */
-  --accent: 124 156 255; /* soft indigo */
-  --accent2: 52 211 180; /* teal */
-  --glow: 124 156 255;
+  /* Emerald Night: deep green-black, emerald + lime highlights */
+  --bg: 10 18 15; --panel: 17 29 24; --fg: 232 240 236; --muted: 150 168 160; --line: 150 180 165; --accent: 52 211 153; --accent2: 163 230 53; --glow: 52 211 153;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg: 246 248 252; --panel: 255 255 255; --fg: 15 23 42; --muted: 82 96 122;
-    --line: 15 23 42; --accent: 59 91 219; --accent2: 14 159 135; --glow: 59 91 219;
+    --bg: 246 249 247; --panel: 255 255 255; --fg: 16 26 22; --muted: 84 100 92; --line: 16 26 22; --accent: 5 150 105; --accent2: 101 163 13; --glow: 5 150 105;
     color-scheme: light;
   }
 }
 :root[data-theme="light"] {
-  --bg: 246 248 252; --panel: 255 255 255; --fg: 15 23 42; --muted: 82 96 122;
-  --line: 15 23 42; --accent: 59 91 219; --accent2: 14 159 135; --glow: 59 91 219;
+  --bg: 246 249 247; --panel: 255 255 255; --fg: 16 26 22; --muted: 84 100 92; --line: 16 26 22; --accent: 5 150 105; --accent2: 101 163 13; --glow: 5 150 105;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --bg: 11 18 32; --panel: 17 26 46; --fg: 231 236 245; --muted: 147 160 184;
-  --line: 148 163 184; --accent: 124 156 255; --accent2: 52 211 180; --glow: 124 156 255;
+  --bg: 10 18 15; --panel: 17 29 24; --fg: 232 240 236; --muted: 150 168 160; --line: 150 180 165; --accent: 52 211 153; --accent2: 163 230 53; --glow: 52 211 153;
   color-scheme: dark;
 }
 
@@ -142,4 +133,95 @@ h1, h2, h3, .font-display { font-family: "Sora", "Inter", ui-sans-serif, system-
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal:not(.in) { transform: none; opacity: 1; }
   .pulse::after { display: none; }
+}
+
+/* ---------- v2 design upgrades ---------- */
+/* dotted grid behind the hero, fading out at the edges */
+.grid-bg { position: relative; isolation: isolate; }
+.grid-bg::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: radial-gradient(rgb(var(--line) / .22) 1px, transparent 1.2px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 35%, #000 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse 75% 70% at 50% 35%, #000 30%, transparent 75%);
+}
+
+/* gradient on the last name */
+.name-grad {
+  background: linear-gradient(100deg, rgb(var(--accent)) 10%, rgb(var(--accent2)) 90%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* code-style profile card that overlaps the portrait */
+.code-card {
+  background: rgb(var(--panel) / .92);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(var(--line) / .18);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px -20px rgb(0 0 0 / .45);
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 12.5px; line-height: 1.7;
+}
+.code-card .k { color: rgb(var(--accent)); }
+.code-card .s { color: rgb(var(--accent2)); }
+.code-card .p { color: rgb(var(--muted)); }
+.dots span { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+/* scroll progress bar under the navbar */
+#progress {
+  position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%;
+  transform-origin: 0 50%; transform: scaleX(0);
+  background: linear-gradient(90deg, rgb(var(--accent)), rgb(var(--accent2)));
+}
+
+/* skill icon badge */
+.icon-badge {
+  width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+  background: rgb(var(--accent) / .12); color: rgb(var(--accent));
+  border: 1px solid rgb(var(--accent) / .22);
+}
+
+/* project image zoom on hover */
+.shot img { transition: transform .5s ease; }
+.card-hover:hover .shot img { transform: scale(1.04); }
+
+/* section heading underline accent */
+.h-accent { position: relative; display: inline-block; padding-bottom: .35rem; }
+.h-accent::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 56px; height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, rgb(var(--accent)), rgb(var(--accent2)));
+}
+
+/* alternating section tint for rhythm */
+.tint { background: rgb(var(--panel) / .35); border-block: 1px solid rgb(var(--line) / .08); }
+
+/* floating back-to-top */
+#to-top {
+  position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 40;
+  opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .25s, transform .25s;
+}
+#to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+
+/* ---------- project screenshot slider ---------- */
+.shot { position: relative; }
+.slides { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+.slides::-webkit-scrollbar { display: none; }
+.slides img { flex: 0 0 100%; scroll-snap-align: start; }
+.card-hover:hover .shot img { transform: none; }
+.slide-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 22px; line-height: 1; padding-bottom: 3px;
+  background: rgb(var(--bg) / .72); color: rgb(var(--fg));
+  border: 1px solid rgb(var(--line) / .25);
+  opacity: 0; transition: opacity .2s, background .2s;
+}
+.slide-btn.prev { left: 8px; } .slide-btn.next { right: 8px; }
+.shot:hover .slide-btn, .slide-btn:focus-visible { opacity: 1; }
+.slide-btn:hover { background: rgb(var(--accent)); color: rgb(var(--bg)); }
+@media (hover: none) { .slide-btn { opacity: 1; } }
+.slide-count {
+  position: absolute; right: 8px; bottom: 8px; padding: 2px 8px; border-radius: 999px;
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; font-size: 11px;
+  background: rgb(var(--bg) / .72); color: rgb(var(--fg));
 }
