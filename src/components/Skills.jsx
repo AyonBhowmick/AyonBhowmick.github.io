@@ -1,29 +1,21 @@
 import { skills } from '../data/portfolio.js';
-import Reveal from './Reveal.jsx';
-import Card from './Card.jsx';
-import SectionHeading from './SectionHeading.jsx';
-import Icon from './Icon.jsx';
+import Section from './Section.jsx';
 
 export default function Skills() {
   return (
-    <section id="skills" className="tint py-20">
-      <div className="mx-auto max-w-site px-4 sm:px-6">
-        <Reveal><SectionHeading number="02" eyebrow="Skills" title="Tools I work with" /></Reveal>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((group, i) => (
-            <Card key={group.title} className="p-6" delay={(i % 3) * 70}>
-              <div className="flex items-center gap-3">
-                <span className="icon-badge"><Icon name={group.icon} /></span>
-                <h3 className="text-lg font-semibold">{group.title}</h3>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((item) => <span className="chip" key={item}>{item}</span>)}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
+    <Section id="skills" number="04" label="Skills" title="Tools I work with">
+      <dl className="divide-y divide-[rgb(var(--line)/.09)] border-y hairline">
+        {skills.map((g) => (
+          <div key={g.title} className="grid gap-3 py-5 sm:grid-cols-[180px_1fr] sm:gap-6">
+            <dt className="pt-1 font-semibold">{g.title}</dt>
+            <dd>
+              <ul className="flex flex-wrap gap-1.5">
+                {g.items.map((s) => <li key={s} className="tag">{s}</li>)}
+              </ul>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
   );
 }

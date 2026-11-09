@@ -2,34 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Ayon Kumar Bhowmick Ovi | Portfolio</title>
-  <meta name="description" content="Portfolio of Ayon Kumar Bhowmick Ovi, B.Sc in CSE at AIUB, working on AI/ML, software development and research." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayon Kumar Bhowmick Ovi | Software & ML Research Portfolio</title>
+  <meta name="description" content="Ayon Kumar Bhowmick Ovi: CSE student at AIUB (CGPA 3.71) building software and doing explainable machine-learning research, with 2 IEEE conference papers and 5 projects." />
   <meta name="author" content="Ayon Kumar Bhowmick Ovi" />
+  <link rel="canonical" href="https://ayon-bhowmick-portfolio.vercel.app/" />
+  <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ayon Kumar Bhowmick Ovi | Portfolio" />
-  <meta property="og:description" content="B.Sc in CSE, AIUB · AI/ML · Software Development · Research" />
-  <meta property="og:image" content="https://ayonbhowmick.github.io/assets/img/avatar.jpg" />
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://ayon-bhowmick-portfolio.vercel.app/" />
+  <meta property="og:title" content="Ayon Kumar Bhowmick Ovi | Software & ML Research" />
+  <meta property="og:description" content="CSE @ AIUB · Software development and explainable machine learning · 2 IEEE conference papers." />
+  <meta property="og:image" content="https://ayon-bhowmick-portfolio.vercel.app/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://ayon-bhowmick-portfolio.vercel.app/og.jpg" />
 
-  <!-- Set the theme before the page paints (no flash) -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" as="image" href="/img/profile.webp" imagesrcset="/img/profile-480.webp 480w, /img/profile.webp 720w" imagesizes="(min-width: 1024px) 340px, (min-width: 768px) 280px, 220px" fetchpriority="high" />
+
+  <!-- Apply the saved theme before the page paints (no flash) -->
   <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('ayon-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    })();
+    try { var t = localStorage.getItem('ayon-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ayon Kumar Bhowmick Ovi",
+    "url": "https://ayon-bhowmick-portfolio.vercel.app/",
+    "image": "https://ayon-bhowmick-portfolio.vercel.app/img/profile.webp",
+    "email": "mailto:ayon312002@gmail.com",
+    "jobTitle": "Computer Science and Engineering student",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "American International University-Bangladesh" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Dhaka", "addressCountry": "BD" },
+    "knowsAbout": ["Machine Learning", "Explainable AI", "Deep Learning", "Software Development", "Data Analytics"],
+    "sameAs": ["https://github.com/AyonBhowmick", "https://www.linkedin.com/in/ayon-bhowmick/"]
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>
-  <noscript>This portfolio needs JavaScript. You can reach me at ayon312002@gmail.com.</noscript>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
