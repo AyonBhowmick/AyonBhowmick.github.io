@@ -10,8 +10,9 @@ export default {
         muted: 'rgb(var(--muted) / <alpha-value>)',
         line: 'rgb(var(--line) / <alpha-value>)',
         accent: 'rgb(var(--accent) / <alpha-value>)',
+        accent2: 'rgb(var(--accent2) / <alpha-value>)',
       },
-      maxWidth: { site: '1180px' },
+      maxWidth: { site: '1140px' },
     },
   },
 };

@@ -43,11 +43,11 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="site-header fixed inset-x-0 top-0 z-50">
-      <nav className="mx-auto flex h-16 max-w-site items-center justify-between gap-4 px-4 sm:px-6" aria-label="Main">
-        <a href="#top" className="flex items-center gap-2.5 font-semibold">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent text-[13px] font-bold text-[rgb(var(--accent-fg))]">{profile.initials}</span>
-          <span className="whitespace-nowrap text-[15px]">{profile.shortName}</span>
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3">
+      <nav className="nav-pill mx-auto flex h-14 max-w-site items-center justify-between gap-4 pl-3 pr-2" aria-label="Main">
+        <a href="#top" className="flex min-w-0 items-center gap-2.5">
+          <img src="/img/avatar.webp" alt="" width="36" height="36" className="h-9 w-9 flex-none rounded-full object-cover ring-2 ring-accent/40" />
+          <span className="font-display truncate whitespace-nowrap text-[15px] font-semibold">{profile.shortName}</span>
         </a>
 
         <ul className="hidden items-center gap-6 text-sm md:flex">
@@ -58,10 +58,8 @@ export default function Header() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
-          <a href={profile.cv} target="_blank" rel="noopener" className="btn btn-primary hidden !px-4 !py-2.5 sm:inline-flex">
-            Resume
-          </a>
+        <div className="flex flex-none items-center gap-2">
+          <a href={profile.cv} target="_blank" rel="noopener" className="btn btn-primary hidden !px-4 !py-2.5 sm:inline-flex">Resume</a>
           <button type="button" onClick={toggleTheme} className="icon-btn" aria-label="Switch between light and dark theme">
             <span className="icon-moon"><Icon name="moon" className="h-[18px] w-[18px]" /></span>
             <span className="icon-sun"><Icon name="sun" className="h-[18px] w-[18px]" /></span>
@@ -73,17 +71,15 @@ export default function Header() {
         </div>
       </nav>
 
-      <div id="mobile-menu" hidden={!open} className="border-t hairline bg-[rgb(var(--bg))] px-4 pb-4 md:hidden">
-        <ul className="mx-auto flex max-w-site flex-col pt-2 text-[16px]">
+      <div id="mobile-menu" hidden={!open} className="mobile-menu mx-auto mt-2 max-w-site p-2 md:hidden">
+        <ul className="flex flex-col text-[16px]">
           {navLinks.map((l) => (
             <li key={l.id}>
-              <a className="block rounded-lg px-3 py-3 hover:bg-accent/10" href={`#${l.id}`} onClick={() => setOpen(false)}>{l.label}</a>
+              <a className="block rounded-xl px-3 py-3 hover:bg-accent/10" href={`#${l.id}`} onClick={() => setOpen(false)}>{l.label}</a>
             </li>
           ))}
           <li>
-            <a className="block rounded-lg px-3 py-3 font-semibold text-accent hover:bg-accent/10" href={profile.cv} target="_blank" rel="noopener">
-              Resume (PDF)
-            </a>
+            <a className="block rounded-xl px-3 py-3 font-semibold text-accent hover:bg-accent/10" href={profile.cv} target="_blank" rel="noopener">Resume (PDF)</a>
           </li>
         </ul>
       </div>
