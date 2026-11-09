@@ -13,7 +13,9 @@ export const profile = {
   shortName: 'Ayon Bhowmick',
   initials: 'AB',
   status: 'Open to internships & entry-level roles',
-  role: 'CSE undergraduate · Software & explainable ML',
+  nameMain: 'Ayon Kumar Bhowmick', // shown in white
+  nameAccent: 'Ovi', // shown with the violet-pink gradient
+  role: ['Software development', 'Explainable ML'],
   lead:
     'I build software (desktop apps, web platforms and databases) and do machine-learning research focused on explainable models for health, energy and finance.',
   email: 'ayon312002@gmail.com',
@@ -23,6 +25,12 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/ayon-bhowmick/',
   linkedinLabel: 'linkedin.com/in/ayon-bhowmick',
   cv: '/assets/Ayon_CV.pdf',
+  // the small code card on the photo
+  codeCard: [
+    ['focus', '"AI/ML · Software"'],
+    ['papers', '2'],
+    ['openTo', '"Internships"'],
+  ],
 };
 
 // The four numbers shown under the hero.
@@ -194,14 +202,14 @@ export const projects = [
   },
 ];
 
+// icon: one of code, ai, database, flask, network, tool (see components/Icon.jsx)
 export const skills = [
-  { title: 'Programming', items: ['Python', 'C++', 'C#', 'Java', 'JavaScript', 'PHP'] },
-  { title: 'AI / ML', items: ['PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'SHAP', 'Grad-CAM'] },
-  { title: 'Web & software', items: ['HTML', 'CSS', '.NET', 'Windows Forms'] },
-  { title: 'Databases', items: ['MySQL', 'SQL', 'Microsoft SQL Server', 'Oracle SQL'] },
-  { title: 'Testing & QA', items: ['Manual testing', 'API testing (Postman)', 'Test case design', 'Selenium', 'SQA'] },
-  { title: 'Networking', items: ['TCP/IP', 'OSI', 'Subnetting', 'VLANs', 'OSPF', 'Packet Tracer'] },
-  { title: 'Tools & OS', items: ['Git', 'GitHub', 'VS Code', 'Jupyter', 'Google Colab', 'Windows', 'Linux'] },
+  { title: 'Programming', icon: 'code', items: ['Python', 'C++', 'C#', 'Java', 'JavaScript', 'PHP'] },
+  { title: 'AI / Machine Learning', icon: 'ai', items: ['PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'SHAP', 'Grad-CAM'] },
+  { title: 'Web & Databases', icon: 'database', items: ['HTML', 'CSS', '.NET', 'Windows Forms', 'MySQL', 'SQL Server', 'Oracle SQL'] },
+  { title: 'Testing & QA', icon: 'flask', items: ['Manual testing', 'API testing (Postman)', 'Test case design', 'Selenium', 'SQA'] },
+  { title: 'Networking', icon: 'network', items: ['TCP/IP', 'OSI', 'Subnetting', 'VLANs', 'OSPF', 'Packet Tracer'] },
+  { title: 'Tools & OS', icon: 'tool', items: ['Git', 'GitHub', 'VS Code', 'Jupyter', 'Google Colab', 'Windows', 'Linux'] },
 ];
 
 export const education = [

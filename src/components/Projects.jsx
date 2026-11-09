@@ -59,8 +59,8 @@ function Schema({ tables }) {
       <div className="flex flex-wrap items-center justify-center gap-2.5">
         {tables.map((t, i) => (
           <div key={t} className="flex items-center gap-2.5">
-            <div className="panel min-w-[92px] overflow-hidden !rounded-lg text-left shadow-sm">
-              <p className="bg-accent px-2.5 py-1 text-[11px] font-semibold text-[rgb(var(--accent-fg))]">{t}</p>
+            <div className="schema-table text-left">
+              <p className="px-2.5 py-1 text-[11px] font-semibold">{t}</p>
               <p className="font-mono px-2.5 pt-1.5 text-[10px] text-muted">id PK</p>
               <p className="font-mono px-2.5 pb-1.5 text-[10px] text-muted">{i === 0 ? 'name' : 'ref_id FK'}</p>
             </div>
@@ -72,33 +72,37 @@ function Schema({ tables }) {
   );
 }
 
-function Project({ p, onOpen }) {
+function Project({ p, featured, onOpen }) {
   const cover = p.shots[0];
   return (
-    <article className="project panel flex flex-col p-4 sm:p-5">
+    <article className={`card card-hover flex flex-col p-4 sm:p-5 ${featured ? 'md:col-span-2 md:grid md:grid-cols-[1.25fr_1fr] md:items-center md:gap-8' : ''}`}>
       {cover ? (
         <button type="button" className="cover" onClick={() => onOpen(p, 0)}
                 aria-label={`Open ${p.shots.length} screenshots of ${p.title}`}>
           <img src={img(cover.src, true)} alt="" width={cover.w} height={cover.h} loading="lazy" decoding="async"
                className={cover.contain ? 'contain' : ''} />
-          {p.shots.length > 1 && <span className="cover-count">{p.shots.length} screenshots</span>}
+          {p.shots.length > 1 && <span className="cover-count"><Icon name="expand" className="h-3.5 w-3.5" />{p.shots.length} screenshots</span>}
         </button>
       ) : (
         <Schema tables={p.schema} />
       )}
 
-      <div className="flex flex-1 flex-col px-1 pt-5">
-        <p className="label">{p.kind}</p>
-        <h3 className="font-serif mt-1.5 text-2xl font-semibold tracking-tight">{p.title}</h3>
+      <div className={`flex flex-1 flex-col px-1 pt-5 ${featured ? 'md:py-2 md:pt-0' : ''}`}>
+        <div className="flex flex-wrap gap-1.5 text-xs" aria-label="Type and technologies">
+          <span className="chip !bg-accent/20 !border-accent/45 font-semibold">{p.kind}</span>
+          {p.tech.map((t) => <span key={t} className="chip">{t}</span>)}
+        </div>
+        <h3 className="mt-3 text-xl font-semibold">{p.title}</h3>
         <p className="mt-2 text-[15px] leading-relaxed text-fg/80">{p.description}</p>
         <ul className="mt-3 space-y-1 text-sm text-muted">
-          {p.highlights.map((h) => <li key={h} className="flex gap-2"><span aria-hidden="true">–</span>{h}</li>)}
-        </ul>
-        <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Technologies">
-          {p.tech.map((t) => <li key={t} className="tag">{t}</li>)}
+          {p.highlights.map((h) => (
+            <li key={h} className="flex gap-2.5">
+              <span className="mt-[.5em] h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-br from-accent to-accent2" aria-hidden="true" />{h}
+            </li>
+          ))}
         </ul>
         <a href={p.repo} target="_blank" rel="noopener" className="link mt-auto inline-flex items-center gap-2 pt-5 text-sm">
-          <Icon name="github" className="h-4 w-4" /> Source code <Icon name="arrowRight" className="h-4 w-4" />
+          <Icon name="github" className="h-4 w-4" /> View on GitHub <Icon name="arrowRight" className="h-4 w-4" />
           <span className="sr-only">for {p.title} on GitHub</span>
         </a>
       </div>
@@ -112,7 +116,7 @@ export default function Projects() {
     <Section id="projects" number="03" label="Projects" title="Things I've built"
              intro="Course and personal projects across desktop, web, databases and graphics. All the code is on GitHub.">
       <div className="grid gap-5 md:grid-cols-2">
-        {projects.map((p) => <Project key={p.title} p={p} onOpen={(project, index) => setViewer({ project, index })} />)}
+        {projects.map((p, i) => <Project key={p.title} p={p} featured={i === 0} onOpen={(project, index) => setViewer({ project, index })} />)}
       </div>
       {viewer && (
         <Lightbox viewer={viewer} onIndex={(index) => setViewer((v) => ({ ...v, index }))} onClose={() => setViewer(null)} />

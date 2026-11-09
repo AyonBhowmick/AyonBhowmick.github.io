@@ -1,14 +1,12 @@
-// Every section: a small numbered label on the left, content on the right (on wide screens).
-export default function Section({ id, number, label, title, intro, children, className = '' }) {
+// Section wrapper: numbered eyebrow, big title with a gradient underline, optional intro.
+export default function Section({ id, number, label, title, intro, tint = false, children }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className={`border-t hairline py-16 sm:py-24 ${className}`}>
-      <div className="mx-auto grid max-w-site gap-8 px-4 sm:px-6 lg:grid-cols-[200px_1fr] lg:gap-12">
-        <p className="label pt-2">{number} · {label}</p>
-        <div className="min-w-0">
-          <h2 id={`${id}-title`} className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
-          {intro && <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-muted">{intro}</p>}
-          <div className="mt-10">{children}</div>
-        </div>
+    <section id={id} aria-labelledby={`${id}-title`} className={`py-20 sm:py-24 ${tint ? 'tint' : ''}`}>
+      <div className="mx-auto max-w-site px-4 sm:px-6">
+        <p className="eyebrow"><span className="eyebrow-num">{number}</span>{label}</p>
+        <h2 id={`${id}-title`} className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl"><span className="h-accent">{title}</span></h2>
+        {intro && <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-muted">{intro}</p>}
+        <div className="mt-10">{children}</div>
       </div>
     </section>
   );
