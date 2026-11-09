@@ -1,219 +1,239 @@
 // =====================================================================
 // ALL the text on the site lives in this file.
-// To update the portfolio, edit the values below, save, and push.
+// Edit the values below, save, commit and push. Vercel and GitHub Pages
+// rebuild the site automatically.
 // =====================================================================
+
+export const site = {
+  url: 'https://ayon-bhowmick-portfolio.vercel.app/',
+};
 
 export const profile = {
   name: 'Ayon Kumar Bhowmick Ovi',
   shortName: 'Ayon Bhowmick',
-  nameLines: ['Ayon Kumar', 'Bhowmick'], // first two lines of the big hero name
-  nameAccent: 'Ovi', // last word, shown with the gradient
+  initials: 'AB',
   status: 'Open to internships & entry-level roles',
-  typedPrefix: 'I work on',
-  typedWords: ['AI/ML Research', 'Software Development', 'Deep Learning for Healthcare', 'Explainable AI'],
-  tagline: 'B.Sc in CSE, AIUB · AI/ML · Software Development · Research',
-  summary:
-    'I build practical software and apply machine learning to real-world problems, especially in healthcare and forecasting. Currently studying Computer Science and Engineering at AIUB.',
+  role: 'CSE undergraduate · Software & explainable ML',
+  lead:
+    'I build software (desktop apps, web platforms and databases) and do machine-learning research focused on explainable models for health, energy and finance.',
   email: 'ayon312002@gmail.com',
   location: 'Dhaka, Bangladesh',
   github: 'https://github.com/AyonBhowmick',
   githubLabel: 'github.com/AyonBhowmick',
   linkedin: 'https://www.linkedin.com/in/ayon-bhowmick/',
   linkedinLabel: 'linkedin.com/in/ayon-bhowmick',
-  cv: 'assets/Ayon_CV.pdf',
-  photo: 'assets/img/profile.jpg',
-  avatar: 'assets/img/avatar.jpg',
-  codeCard: [
-    ['focus', 'AI/ML · Software'],
-    ['studying', 'CSE @ AIUB'],
-    ['openTo', 'Internships'],
-  ],
+  cv: '/assets/Ayon_CV.pdf',
 };
+
+// The four numbers shown under the hero.
+export const facts = [
+  { value: '3.71', label: 'CGPA at AIUB', note: 'out of 4.00' },
+  { value: '2', label: 'IEEE conference papers', note: '1 published · 1 accepted' },
+  { value: '3', label: 'Papers under review', note: 'ICCIT 2026 · ICREST 2027' },
+  { value: '5', label: 'Software projects', note: 'desktop · web · game · database' },
+];
 
 export const navLinks = [
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
   { id: 'research', label: 'Research' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ];
 
-// value: number → animated count-up. text: shown as-is.
-export const stats = [
-  { label: 'CGPA', value: 3.71, decimals: 2, suffix: ' / 4.00' },
-  { label: 'Projects', value: 4, decimals: 0, suffix: ' built' },
-  { label: 'Publications', value: 1, decimals: 0, suffix: ' paper' },
-  { label: 'IEEE AIUB', text: 'Student Member' },
-];
-
-export const marquee = [
-  'Python', 'PyTorch', 'Scikit-learn', 'C++', 'C#', 'Java', 'JavaScript', 'PHP', 'MySQL',
-  'SQL Server', '.NET', 'HTML & CSS', 'Selenium', 'Git & GitHub', 'Explainable AI', 'Deep Learning',
-];
-
 export const about = {
-  heading: 'Career goal',
   paragraphs: [
-    "I'm a B.Sc in Computer Science and Engineering student at American International University-Bangladesh (AIUB), graduating in October 2026.",
-    'My goal is to begin my career in a challenging role where I can apply my knowledge of software development, machine learning and data analysis to solve real-world problems. I want to work with experienced professionals, learn modern tools and industry practices, and take on responsibilities that strengthen my technical and problem-solving skills.',
-    'In the long term, I want to grow into a skilled and dependable engineer who contributes to useful, high-quality products.',
+    "I'm studying for a B.Sc in Computer Science and Engineering at American International University-Bangladesh (AIUB), where I've been since January 2023.",
+    'I want to start my career in a challenging role where I can apply software development, machine learning and data analysis to real problems, working alongside experienced engineers and learning modern tools and industry practice.',
+    'Long term, I want to become a skilled and dependable engineer who contributes to useful, high-quality products.',
   ],
-  focus: [
-    'Research in machine learning, deep learning, NLP and data mining',
-    'Looking for an internship to apply my skills and learn from experienced professionals',
-    'Completing my B.Sc in CSE at AIUB (October 2026)',
+  now: [
+    'Writing papers on explainable ML: diabetes, dengue, plant disease and software defects',
+    'Looking for an internship or entry-level role in software, ML, data or QA',
+    'Student Member, IEEE AIUB Student Branch',
   ],
 };
 
-// icon: one of code, ai, database, flask, network, tool (see components/Icon.jsx)
-export const skills = [
-  { title: 'Programming', icon: 'code', items: ['Python', 'C++', 'C#', 'Java', 'JavaScript', 'PHP'] },
-  { title: 'AI / Machine Learning', icon: 'ai', items: ['PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'SHAP', 'Grad-CAM'] },
-  { title: 'Web & Databases', icon: 'database', items: ['HTML', 'CSS', '.NET', 'Windows Forms', 'MySQL', 'SQL Server'] },
-  { title: 'Testing & QA', icon: 'flask', items: ['Manual Testing', 'Test Case Design', 'Selenium'] },
-  { title: 'Networking', icon: 'network', items: ['TCP/IP', 'OSI', 'Subnetting', 'VLANs', 'OSPF', 'NAT · DHCP · DNS', 'Packet Tracer'] },
-  { title: 'Tools', icon: 'tool', items: ['Git', 'GitHub', 'VS Code', 'Visual Studio', 'Jupyter', 'Google Colab'] },
+export const researchInterests = [
+  'Machine Learning', 'Deep Learning', 'Explainable AI', 'Data Analytics', 'Natural Language Processing',
+  'Computer Vision', 'Data Mining', 'Business Intelligence', 'Data Science',
 ];
 
-export const projectFilters = [
-  { id: 'all', label: 'All' },
-  { id: 'desktop', label: 'Desktop' },
-  { id: 'web', label: 'Web' },
-  { id: 'game', label: 'Game' },
-];
-
-// Screenshots are files inside public/SS/. "contain: true" shows the whole
-// image instead of cropping it to fill the frame.
-export const projects = [
-  {
-    title: 'University Management System',
-    category: 'desktop',
-    tech: ['Java', 'Swing', 'File I/O'],
-    description: 'Desktop app for managing students, teachers, sections, fees and university funds.',
-    highlights: [
-      'Role-based login and sign-up',
-      'Fee structure and fund management modules',
-      'Persistent data storage with File I/O',
-    ],
-    repo: 'https://github.com/AyonBhowmick/University_Management_System',
-    shots: [
-      { src: 'SS/University mangemnet system/3.JPG', alt: 'Main screen' },
-      { src: 'SS/University mangemnet system/2.JPG', alt: 'Login screen', contain: true },
-      { src: 'SS/University mangemnet system/Capture.JPG', alt: 'Welcome screen', contain: true },
-    ],
-  },
-  {
-    title: 'Cafe Shop Management System',
-    category: 'desktop',
-    tech: ['C#', '.NET', 'SQL Server'],
-    description: 'Café operations system with separate Admin and Cashier roles.',
-    highlights: [
-      'Admin dashboard with income and customer totals',
-      'Product, user and order management',
-      'Billing, payments and receipt generation',
-    ],
-    repo: 'https://github.com/AyonBhowmick/Cafe_Shop_Management_System',
-    shots: [
-      { src: 'SS/CAFE SHOP/dashboard.png', alt: 'Admin dashboard' },
-      { src: 'SS/CAFE SHOP/welcome.png', alt: 'Welcome screen', contain: true },
-      { src: 'SS/CAFE SHOP/login.png', alt: 'Sign in screen', contain: true },
-      { src: 'SS/CAFE SHOP/register.png', alt: 'Register screen', contain: true },
-    ],
-  },
-  {
-    title: 'SkillSwap Connect',
-    category: 'web',
-    tech: ['PHP', 'MySQL', 'JavaScript'],
-    description: 'Web platform that connects learners and mentors for skill exchange and paid courses.',
-    highlights: [
-      'Roles for Learners, Mentors and Admins',
-      'Course requests, messaging and progress tracking',
-      'Certificate generation',
-    ],
-    repo: 'https://github.com/AyonBhowmick/SkillSwap-Connect',
-    shots: [
-      { src: 'SS/skillswap/Screenshot 2026-10-03 033710.png', alt: 'Home page' },
-      { src: 'SS/skillswap/Screenshot 2026-10-03 033450.png', alt: 'Browse and request skills' },
-      { src: 'SS/skillswap/Screenshot 2026-10-03 033424.png', alt: 'Learner dashboard' },
-      { src: 'SS/skillswap/Screenshot 2026-10-03 033518.png', alt: 'Chat with mentor' },
-      { src: 'SS/skillswap/Screenshot 2026-10-03 033230.png', alt: 'Admin dashboard' },
-      { src: 'SS/skillswap/Screenshot 2026-10-03 033302.png', alt: 'User management' },
-      { src: 'SS/skillswap/Screenshot 2026-10-03 033329.png', alt: 'Skill swap requests' },
-    ],
-  },
-  {
-    title: 'Virus Invaders',
-    category: 'game',
-    tech: ['C++', 'OpenGL', 'GLUT'],
-    description: '2D arcade game where the player fights viruses and collects vaccines.',
-    highlights: [
-      'Real-time movement and collision detection',
-      'Health, score and vaccine collection',
-      'Five levels with dynamic weather effects',
-    ],
-    repo: 'https://github.com/AyonBhowmick/VIRUS_INVADERS',
-    shots: [
-      { src: 'SS/virus/4.JPG', alt: 'Level 1, sunny', contain: true },
-      { src: 'SS/virus/3.JPG', alt: 'Level 2, night', contain: true },
-      { src: 'SS/virus/2 (1).JPG', alt: 'Level 3, winter', contain: true },
-      { src: 'SS/virus/1.JPG', alt: 'Level 4, rain', contain: true },
-    ],
-  },
-];
-
-export const researchAreas = [
-  'Machine Learning', 'Deep Learning', 'Natural Language Processing', 'Data Mining',
-  'Medical Image Analysis', 'Explainable AI', 'Computer Vision', 'Data Science',
-];
-
-// To add another paper, copy one { ... } block and change the values.
-// "me" is your name exactly as it appears in the authors list (it is shown in bold).
+// "me" is your name exactly as it appears in the author list (shown in bold).
+// status: 'published' shows a DOI link; 'accepted' shows a badge only.
 export const publications = [
   {
-    badge: 'IEEE · 2026',
-    venueShort: 'PECCII 2026 · Pabna, Bangladesh',
+    status: 'published',
+    badge: 'Published · IEEE',
     title:
       'Daily Peak Demand Forecasting in Bangladesh: A Leakage-Aware Comparison of Machine Learning, Deep Learning, and a Hybrid RF–Naive Model',
     authors: ['D. P. Karmakar', 'A. K. B. Ovi', 'T. B. Jenny', 'M. M. Hasan'],
     me: 'A. K. B. Ovi',
     venue:
       '2026 International Conference on Power, Electronics, Communications, Computing, and Intelligent Infrastructure (PECCII)',
-    pages: 'pp. 1–6',
+    place: 'Pabna, Bangladesh, 2026, pp. 1–6',
     doi: '10.1109/PECCII70991.2026.11661966',
-    url: 'https://ieeexplore.ieee.org/document/11661966',
   },
+  {
+    status: 'accepted',
+    badge: 'Accepted · Oral presentation',
+    title:
+      'An Explainable Stacking Ensemble Framework with SMOTE for Loan Approval Prediction: A CIBIL-Centric Interpretability Analysis',
+    authors: ['A. K. B. Ovi', 'S. K. B. Shanto', 'B. K. Bhawmick'],
+    me: 'A. K. B. Ovi',
+    venue: '2026 IEEE 8th International Conference on Sustainable Technologies for Industry 5.0 (STI)',
+    place: 'Dhaka, Bangladesh, 2026 (to appear)',
+  },
+];
+
+export const underReview = [
+  {
+    title: 'Leakage-Aware Diabetes Prediction Using Mutual Information and Explainable Machine Learning',
+    authors: ['A. K. B. Ovi', 'B. K. Bhawmick'],
+    venue: 'Submitted to ICCIT 2026 (29th International Conference on Computer and Information Technology)',
+  },
+  {
+    title: 'Chilli Leaf Disease Classification Using a ConvNeXt-Mamba Hybrid with Explainable AI',
+    authors: ['A. K. B. Ovi', 'T. B. Jenny', 'T. Ahmed', 'R. Mahmud', 'S. A. Tasnim'],
+    venue: 'Submitted to ICCIT 2026 (29th International Conference on Computer and Information Technology)',
+  },
+  {
+    title:
+      'Explainable Machine Learning for Early Dengue Detection Using Routine Blood Parameters: A CTGAN-Balanced Stacking Framework',
+    authors: ['A. K. B. Ovi', 'S. K. B. Shanto', 'B. K. Bhawmick', 'D. J. Gomes'],
+    venue: 'Submitted to ICREST 2027 (5th International Conference on Robotics, Electrical and Signal Processing Techniques)',
+  },
+];
+
+export const inPreparation = [
+  {
+    title: 'Software Defect Prediction Using Static Code Metrics: A Pair-Aware and Explainable Machine Learning Approach',
+    authors: ['A. K. B. Ovi', 'H. Saha', 'T. Rahaman', 'M. S. Jahan', 'S. J. Liza', 'M. A. A. Mahmud'],
+    venue: 'Manuscript in preparation',
+  },
+];
+
+// Screenshots live in public/img/projects/. Each one has a full-size file
+// (name.webp) and a small one for the card (name-sm.webp).
+// "contain: true" shows the whole image instead of cropping it.
+// "schema" draws a small diagram of the tables when there are no screenshots.
+export const projects = [
+  {
+    title: 'SkillSwap Connect',
+    kind: 'Web platform',
+    tech: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
+    description:
+      'A web platform that connects learners and mentors for skill exchange and paid courses, with separate roles for Learners, Mentors and Admins.',
+    highlights: ['Course requests and messaging', 'Progress tracking', 'Certificate generation'],
+    repo: 'https://github.com/AyonBhowmick/SkillSwap-Connect',
+    shots: [
+      { src: 'skillswap-1', alt: 'Home page', w: 800, h: 448 },
+      { src: 'skillswap-2', alt: 'Browse and request skills', w: 800, h: 454 },
+      { src: 'skillswap-3', alt: 'Learner dashboard', w: 800, h: 363 },
+      { src: 'skillswap-4', alt: 'Chat with a mentor', w: 800, h: 505 },
+      { src: 'skillswap-5', alt: 'Admin dashboard', w: 800, h: 453 },
+      { src: 'skillswap-6', alt: 'User management', w: 800, h: 455 },
+      { src: 'skillswap-7', alt: 'Skill swap requests', w: 800, h: 454 },
+    ],
+  },
+  {
+    title: 'Café Shop Management System',
+    kind: 'Desktop app',
+    tech: ['C#', '.NET', 'SQL Server'],
+    description:
+      'Handles daily café operations and customer orders, with role-based access for Admin and Cashier users.',
+    highlights: ['Products, staff accounts and payments', 'Receipts and sales records', 'Admin dashboard with income totals'],
+    repo: 'https://github.com/AyonBhowmick/Cafe_Shop_Management_System',
+    shots: [
+      { src: 'cafe-1', alt: 'Admin dashboard', w: 800, h: 459 },
+      { src: 'cafe-2', alt: 'Welcome screen', w: 800, h: 520, contain: true },
+      { src: 'cafe-3', alt: 'Sign-in screen', w: 800, h: 548, contain: true },
+      { src: 'cafe-4', alt: 'Register screen', w: 800, h: 604, contain: true },
+    ],
+  },
+  {
+    title: 'Fund Raiser Management System',
+    kind: 'Database design',
+    tech: ['Oracle SQL'],
+    description:
+      'A central relational database that replaces scattered donor spreadsheets, which caused duplicate records and slow reporting.',
+    highlights: ['Schema normalised to 3NF', 'Joins, subqueries and views', 'Reports on total donations and top donors'],
+    repo: 'https://github.com/AyonBhowmick/Fund_Raiser_Management_System',
+    schema: ['Events', 'Donors', 'Donations', 'Organizations', 'Teams'],
+    shots: [],
+  },
+  {
+    title: 'University Management System',
+    kind: 'Desktop app',
+    tech: ['Java', 'Swing', 'File I/O'],
+    description:
+      'A desktop system for student, faculty and administrative records, with role-based login and file-based storage.',
+    highlights: ['Role-based login and sign-up', 'Tuition and scholarship fees', 'Persistent storage with File I/O'],
+    repo: 'https://github.com/AyonBhowmick/University_Management_System',
+    shots: [
+      { src: 'ums-1', alt: 'Main screen', w: 800, h: 444 },
+      { src: 'ums-2', alt: 'Login screen', w: 592, h: 312, contain: true },
+      { src: 'ums-3', alt: 'Welcome screen', w: 715, h: 616, contain: true },
+    ],
+  },
+  {
+    title: 'Virus Invaders',
+    kind: 'Game',
+    tech: ['C++', 'OpenGL', 'GLUT'],
+    description:
+      'A 2D game where the player fights viruses and collects vaccines across five levels with changing weather.',
+    highlights: ['Collision detection', 'Health and score tracking', 'Five progressive levels'],
+    repo: 'https://github.com/AyonBhowmick/VIRUS_INVADERS',
+    shots: [
+      { src: 'virus-1', alt: 'Level 1, sunny', w: 456, h: 450, contain: true },
+      { src: 'virus-2', alt: 'Level 2, night', w: 413, h: 409, contain: true },
+      { src: 'virus-3', alt: 'Level 3, winter', w: 389, h: 385, contain: true },
+      { src: 'virus-4', alt: 'Level 4, rain', w: 435, h: 433, contain: true },
+    ],
+  },
+];
+
+export const skills = [
+  { title: 'Programming', items: ['Python', 'C++', 'C#', 'Java', 'JavaScript', 'PHP'] },
+  { title: 'AI / ML', items: ['PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'SHAP', 'Grad-CAM'] },
+  { title: 'Web & software', items: ['HTML', 'CSS', '.NET', 'Windows Forms'] },
+  { title: 'Databases', items: ['MySQL', 'SQL', 'Microsoft SQL Server', 'Oracle SQL'] },
+  { title: 'Testing & QA', items: ['Manual testing', 'API testing (Postman)', 'Test case design', 'Selenium', 'SQA'] },
+  { title: 'Networking', items: ['TCP/IP', 'OSI', 'Subnetting', 'VLANs', 'OSPF', 'Packet Tracer'] },
+  { title: 'Tools & OS', items: ['Git', 'GitHub', 'VS Code', 'Jupyter', 'Google Colab', 'Windows', 'Linux'] },
 ];
 
 export const education = [
   {
-    period: 'Jan 2023 – Oct 2026 (expected)',
-    degree: 'B.Sc. in Computer Science and Engineering',
-    school: 'American International University-Bangladesh (AIUB), Dhaka',
+    period: 'Jan 2023 – Present',
+    degree: 'B.Sc in Computer Science and Engineering',
+    school: 'American International University-Bangladesh (AIUB)',
     result: 'CGPA 3.71 / 4.00',
   },
   {
     period: '2019 – 2021',
-    degree: 'Higher Secondary Certificate (HSC)',
-    school: 'Dhaka Imperial College, Dhaka',
+    degree: 'Higher Secondary Certificate',
+    school: 'Dhaka Imperial College',
     result: 'GPA 5.00 / 5.00',
   },
   {
     period: '2017 – 2019',
-    degree: 'Secondary School Certificate (SSC)',
-    school: 'National Ideal School, Dhaka',
+    degree: 'Secondary School Certificate',
+    school: 'National Ideal School',
     result: 'GPA 4.78 / 5.00',
   },
 ];
 
-export const activities = [
-  { title: 'Cisco Networking Academy', note: 'Networking training and certification' },
+export const achievements = [
+  { title: 'Cisco Networking Academy', note: 'Completed networking training and certification' },
   { title: 'IEEE SPAVe 7.0', note: 'Student Professional Awareness Venture, IEEE AIUB Student Branch' },
   { title: 'Student Member, IEEE AIUB Student Branch', note: '2026 – Present' },
 ];
 
 export const contact = {
-  heading: "Let's work together",
+  heading: "Let's talk",
   text:
-    "I'm looking for internships and entry-level roles in software engineering, machine learning, data science, QA or research. The fastest way to reach me is email.",
+    "I'm looking for internships and entry-level roles in software engineering, machine learning, data science, QA or research. Email is the fastest way to reach me.",
+  references: 'References available on request.',
 };
