@@ -88,9 +88,9 @@ export default function Research() {
       <ol className="mt-8 space-y-4">
         {publications.map((p, i) => <Paper key={p.title} paper={p} n={i + 1} />)}
       </ol>
-      <div className="mt-4 grid items-start gap-4 lg:grid-cols-[1.6fr_1fr]">
-        <WorkList title="Under peer review" status="review" items={underReview} />
-        <WorkList title="In preparation" status="prep" items={inPreparation} />
+      <div className={`mt-4 grid items-start gap-4 ${underReview.length && inPreparation.length ? 'lg:grid-cols-[1.6fr_1fr]' : ''}`}>
+        {underReview.length > 0 && <WorkList title="Under peer review" status="review" items={underReview} />}
+        {inPreparation.length > 0 && <WorkList title="In preparation" status="prep" items={inPreparation} />}
       </div>
     </Section>
   );

@@ -28,7 +28,7 @@ export const profile = {
   // the small code card on the photo
   codeCard: [
     ['focus', '"AI/ML · Software"'],
-    ['papers', '2'],
+    ['papers', '3'],
     ['openTo', '"Internships"'],
   ],
 };
@@ -36,8 +36,8 @@ export const profile = {
 // The four numbers shown under the hero.
 export const facts = [
   { value: '3.71', label: 'CGPA at AIUB', note: 'out of 4.00' },
-  { value: '2', label: 'IEEE conference papers', note: '1 published · 1 accepted' },
-  { value: '3', label: 'Papers under review', note: 'ICCIT 2026 · ICREST 2027' },
+  { value: '3', label: 'Conference papers', note: '1 published · 2 accepted' },
+  { value: 'IEEE', label: 'Student Member', note: 'AIUB Student Branch · 2026 – Present' },
   { value: '5', label: 'Software projects', note: 'desktop · web · game · database' },
 ];
 
@@ -57,7 +57,7 @@ export const about = {
     'Long term, I want to become a skilled and dependable engineer who contributes to useful, high-quality products.',
   ],
   now: [
-    'Writing papers on explainable ML: diabetes, dengue, plant disease and software defects',
+    'Working on explainable ML research, including software defect prediction',
     'Looking for an internship or entry-level role in software, ML, data or QA',
     'Student Member, IEEE AIUB Student Branch',
   ],
@@ -93,26 +93,20 @@ export const publications = [
     venue: '2026 IEEE 8th International Conference on Sustainable Technologies for Industry 5.0 (STI)',
     place: 'Dhaka, Bangladesh, 2026 (to appear)',
   },
-];
-
-export const underReview = [
   {
-    title: 'Leakage-Aware Diabetes Prediction Using Mutual Information and Explainable Machine Learning',
-    authors: ['A. K. B. Ovi', 'B. K. Bhawmick'],
-    venue: 'Submitted to ICCIT 2026 (29th International Conference on Computer and Information Technology)',
-  },
-  {
-    title: 'Chilli Leaf Disease Classification Using a ConvNeXt-Mamba Hybrid with Explainable AI',
-    authors: ['A. K. B. Ovi', 'T. B. Jenny', 'T. Ahmed', 'R. Mahmud', 'S. A. Tasnim'],
-    venue: 'Submitted to ICCIT 2026 (29th International Conference on Computer and Information Technology)',
-  },
-  {
+    status: 'accepted',
+    badge: 'Accepted · ICREST 2027',
     title:
       'Explainable Machine Learning for Early Dengue Detection Using Routine Blood Parameters: A CTGAN-Balanced Stacking Framework',
     authors: ['A. K. B. Ovi', 'S. K. B. Shanto', 'B. K. Bhawmick', 'D. J. Gomes'],
-    venue: 'Submitted to ICREST 2027 (5th International Conference on Robotics, Electrical and Signal Processing Techniques)',
+    me: 'A. K. B. Ovi',
+    venue: '5th International Conference on Robotics, Electrical and Signal Processing Techniques (ICREST)',
+    place: 'Dhaka, Bangladesh, 2027 (to appear)',
   },
 ];
+
+// Papers submitted and waiting for a decision. Leave the list empty to hide the section.
+export const underReview = [];
 
 export const inPreparation = [
   {
