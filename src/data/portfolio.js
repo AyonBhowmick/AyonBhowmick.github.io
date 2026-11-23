@@ -57,7 +57,7 @@ export const about = {
     'Long term, I want to become a skilled and dependable engineer who contributes to useful, high-quality products.',
   ],
   now: [
-    'Working on explainable ML research, including software defect prediction',
+    'Two papers under review at ECCE 2027: electricity demand forecasting and software defect prediction',
     'Looking for an internship or entry-level role in software, ML, data or QA',
     'Student Member, IEEE AIUB Student Branch',
   ],
@@ -106,15 +106,21 @@ export const publications = [
 ];
 
 // Papers submitted and waiting for a decision. Leave the list empty to hide the section.
-export const underReview = [];
-
-export const inPreparation = [
+export const underReview = [
+  {
+    title: 'Regime-Aware Hybrid Deep Learning for Hourly Electricity Demand Forecasting in Bangladesh',
+    authors: ['A. K. B. Ovi', 'S. K. B. Shanto', 'B. K. Bhawmick'],
+    venue: 'Submitted to ECCE 2027 (International Conference on Electrical, Computer and Communication Engineering)',
+  },
   {
     title: 'Software Defect Prediction Using Static Code Metrics: A Pair-Aware and Explainable Machine Learning Approach',
     authors: ['A. K. B. Ovi', 'H. Saha', 'T. Rahaman', 'M. S. Jahan', 'S. J. Liza', 'M. A. A. Mahmud'],
-    venue: 'Manuscript in preparation',
+    venue: 'Submitted to ECCE 2027 (International Conference on Electrical, Computer and Communication Engineering)',
   },
 ];
+
+// Manuscripts still being written. Leave the list empty to hide the section.
+export const inPreparation = [];
 
 // Screenshots live in public/img/projects/. Each one has a full-size file
 // (name.webp) and a small one for the card (name-sm.webp).
