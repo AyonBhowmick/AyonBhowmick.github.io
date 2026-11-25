@@ -101,10 +101,18 @@ function Project({ p, featured, onOpen }) {
             </li>
           ))}
         </ul>
-        <a href={p.repo} target="_blank" rel="noopener" className="link mt-auto inline-flex items-center gap-2 pt-5 text-sm">
-          <Icon name="github" className="h-4 w-4" /> View on GitHub <Icon name="arrowRight" className="h-4 w-4" />
-          <span className="sr-only">for {p.title} on GitHub</span>
-        </a>
+        <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 text-sm">
+          <a href={p.repo} target="_blank" rel="noopener" className="link inline-flex items-center gap-2">
+            <Icon name="github" className="h-4 w-4" /> View on GitHub <Icon name="arrowRight" className="h-4 w-4" />
+            <span className="sr-only">for {p.title}</span>
+          </a>
+          {p.video && (
+            <a href={p.video} target="_blank" rel="noopener" className="link inline-flex items-center gap-2">
+              <Icon name="play" className="h-4 w-4" /> Watch gameplay
+              <span className="sr-only">video of {p.title} on YouTube</span>
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );

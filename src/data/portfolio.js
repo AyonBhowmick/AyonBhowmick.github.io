@@ -193,6 +193,7 @@ export const projects = [
       'A 2D game where the player fights viruses and collects vaccines across five levels with changing weather.',
     highlights: ['Collision detection', 'Health and score tracking', 'Five progressive levels'],
     repo: 'https://github.com/AyonBhowmick/VIRUS_INVADERS',
+    video: 'https://www.youtube.com/watch?v=ndcEep8XbRQ', // gameplay video (optional field)
     shots: [
       { src: 'virus-1', alt: 'Level 1, sunny', w: 456, h: 450, contain: true },
       { src: 'virus-2', alt: 'Level 2, night', w: 413, h: 409, contain: true },
