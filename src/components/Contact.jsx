@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { contact, profile } from '../data/portfolio.js';
 import Icon from './Icon.jsx';

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { inPreparation, publications, researchInterests, underReview } from '../data/portfolio.js';
 import Section from './Section.jsx';

@@ -1,6 +1,8 @@
 # Ayon Kumar Bhowmick Ovi | Portfolio
 
-One-page portfolio built with **React, Vite and Tailwind CSS**. The page is pre-rendered to plain HTML at build time, so it appears immediately, even before JavaScript loads.
+Portfolio built with **Next.js 15 (App Router), React 19 and Tailwind CSS**. It is exported as static HTML (`output: 'export'`), so every page appears immediately and works on both Vercel and GitHub Pages.
+
+Pages: the home page plus one page per project at `/projects/<slug>/`.
 
 - **Live (Vercel):** https://ayon-bhowmick-portfolio.vercel.app
 - **Mirror (GitHub Pages):** https://ayonbhowmick.github.io
@@ -25,21 +27,22 @@ Vercel and GitHub Pages both rebuild automatically within a couple of minutes.
 
 ## Structure
 ```
-index.html                ← page head: title, SEO tags, structured data
-src/data/portfolio.js     ← ALL the content
-src/components/           ← one file per section
-src/entry-server.jsx      ← used at build time to pre-render the HTML
-scripts/prerender.mjs     ← writes the rendered page into dist/index.html
-public/                   ← images, CV, robots.txt, sitemap.xml, 404.html
-vercel.json               ← caching and security headers for Vercel
-.github/workflows/        ← GitHub Pages build
+src/app/layout.jsx            ← shared layout: SEO tags, theme, header, footer
+src/app/page.jsx              ← home page (all sections)
+src/app/projects/[slug]/      ← one page per project (built for every project in the data file)
+src/app/sitemap.js            ← sitemap.xml for Google
+src/data/portfolio.js         ← ALL the content
+src/components/               ← one file per section
+public/                       ← images, CV, robots.txt
+next.config.mjs               ← static export settings
+vercel.json                   ← caching and security headers for Vercel
+.github/workflows/            ← GitHub Pages build (publishes out/)
 ```
 
 ## Run locally
 Needs [Node.js](https://nodejs.org) 18 or newer.
 ```bash
 npm install
-npm run dev      # development server at http://localhost:5173
-npm run build    # production build in dist/
-npm run preview  # serve the production build
+npm run dev      # development server at http://localhost:3000
+npm run build    # static site in out/
 ```

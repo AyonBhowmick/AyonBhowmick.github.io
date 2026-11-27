@@ -16,7 +16,7 @@ export default function Hero() {
           <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-fg/85">{profile.lead}</p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="#projects" className="btn btn-primary">View projects <Icon name="arrowRight" className="h-4 w-4" /></a>
+            <a href="/#projects" className="btn btn-primary">View projects <Icon name="arrowRight" className="h-4 w-4" /></a>
             <a href={profile.cv} target="_blank" rel="noopener" className="btn btn-ghost"><Icon name="download" className="h-4 w-4" /> Download CV</a>
           </div>
           <div className="mt-6 flex items-center gap-3">
@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="portrait">
             <img src="/img/profile.webp" srcSet="/img/profile-480.webp 480w, /img/profile.webp 720w"
                  sizes="(min-width: 1024px) 360px, (min-width: 640px) 320px, 260px"
-                 alt={`Portrait of ${profile.name}`} width="720" height="900" fetchpriority="high" decoding="async"
+                 alt={`Portrait of ${profile.name}`} width="720" height="900" fetchPriority="high" decoding="async"
                  className="aspect-[4/5] w-full rounded-[24px] object-cover" />
             <div className="code-card -bottom-12 -left-6 w-[74%] !text-[11px] sm:-bottom-8 sm:-left-10 sm:w-[72%] sm:!text-[12.5px]" aria-hidden="true">
               <div className="code-dots mb-1.5 flex gap-1.5">

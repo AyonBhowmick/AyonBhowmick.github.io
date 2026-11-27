@@ -129,6 +129,7 @@ export const inPreparation = [];
 export const projects = [
   {
     title: 'SkillSwap Connect',
+    slug: 'skillswap-connect', // page address: /projects/skillswap-connect/
     kind: 'Web platform',
     tech: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
     description:
@@ -147,6 +148,7 @@ export const projects = [
   },
   {
     title: 'Café Shop Management System',
+    slug: 'cafe-shop-management-system', // page address: /projects/cafe-shop-management-system/
     kind: 'Desktop app',
     tech: ['C#', '.NET', 'SQL Server'],
     description:
@@ -162,6 +164,7 @@ export const projects = [
   },
   {
     title: 'Fund Raiser Management System',
+    slug: 'fund-raiser-management-system', // page address: /projects/fund-raiser-management-system/
     kind: 'Database design',
     tech: ['Oracle SQL'],
     description:
@@ -173,6 +176,7 @@ export const projects = [
   },
   {
     title: 'University Management System',
+    slug: 'university-management-system', // page address: /projects/university-management-system/
     kind: 'Desktop app',
     tech: ['Java', 'Swing', 'File I/O'],
     description:
@@ -187,6 +191,7 @@ export const projects = [
   },
   {
     title: 'Virus Invaders',
+    slug: 'virus-invaders', // page address: /projects/virus-invaders/
     kind: 'Game',
     tech: ['C++', 'OpenGL', 'GLUT'],
     description:

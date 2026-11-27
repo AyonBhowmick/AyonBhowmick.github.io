@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { navLinks, profile } from '../data/portfolio.js';
 import Icon from './Icon.jsx';
@@ -45,7 +47,7 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3">
       <nav className="nav-pill mx-auto flex h-14 max-w-site items-center justify-between gap-4 pl-3 pr-2" aria-label="Main">
-        <a href="#top" className="flex min-w-0 items-center gap-2.5">
+        <a href="/" className="flex min-w-0 items-center gap-2.5">
           <img src="/img/avatar.webp" alt="" width="36" height="36" className="h-9 w-9 flex-none rounded-full object-cover ring-2 ring-accent/40" />
           <span className="font-display truncate whitespace-nowrap text-[15px] font-semibold">{profile.shortName}</span>
         </a>
@@ -53,7 +55,7 @@ export default function Header() {
         <ul className="hidden items-center gap-6 text-sm md:flex">
           {navLinks.map((l) => (
             <li key={l.id}>
-              <a className="nav-link" href={`#${l.id}`} aria-current={active === l.id ? 'true' : undefined}>{l.label}</a>
+              <a className="nav-link" href={`/#${l.id}`} aria-current={active === l.id ? 'true' : undefined}>{l.label}</a>
             </li>
           ))}
         </ul>
@@ -75,7 +77,7 @@ export default function Header() {
         <ul className="flex flex-col text-[16px]">
           {navLinks.map((l) => (
             <li key={l.id}>
-              <a className="block rounded-xl px-3 py-3 hover:bg-accent/10" href={`#${l.id}`} onClick={() => setOpen(false)}>{l.label}</a>
+              <a className="block rounded-xl px-3 py-3 hover:bg-accent/10" href={`/#${l.id}`} onClick={() => setOpen(false)}>{l.label}</a>
             </li>
           ))}
           <li>

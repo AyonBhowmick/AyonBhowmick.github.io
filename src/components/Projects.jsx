@@ -1,76 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 import { projects } from '../data/portfolio.js';
+import { shotUrl } from '../lib/shots.js';
 import Section from './Section.jsx';
 import Icon from './Icon.jsx';
-
-const img = (name, small) => `/img/projects/${name}${small ? '-sm' : ''}.webp`;
-
-// Full-screen screenshot viewer built on <dialog>: Esc closes, focus stays inside,
-// arrow keys move between screenshots.
-function Lightbox({ viewer, onIndex, onClose }) {
-  const ref = useRef(null);
-  const { project, index } = viewer;
-  const shots = project.shots;
-  const shot = shots[index];
-  const many = shots.length > 1;
-  const go = (d) => onIndex((index + d + shots.length) % shots.length);
-
-  useEffect(() => {
-    const d = ref.current;
-    if (d && !d.open) d.showModal();
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = ''; };
-  }, []);
-
-  function onKey(e) {
-    if (!many) return;
-    if (e.key === 'ArrowRight') go(1);
-    if (e.key === 'ArrowLeft') go(-1);
-  }
-
-  return (
-    <dialog ref={ref} className="lightbox" aria-label={`${project.title} screenshots`}
-            onClose={onClose} onKeyDown={onKey} onClick={(e) => { if (e.target === e.currentTarget) ref.current.close(); }}>
-      <button type="button" className="lb-btn right-3 top-3" aria-label="Close" onClick={() => ref.current.close()} autoFocus>
-        <Icon name="close" />
-      </button>
-      {many && (
-        <>
-          <button type="button" className="lb-btn left-3 top-1/2 z-10 -translate-y-1/2" aria-label="Previous screenshot" onClick={() => go(-1)}><Icon name="chevronLeft" /></button>
-          <button type="button" className="lb-btn right-3 top-1/2 z-10 -translate-y-1/2" aria-label="Next screenshot" onClick={() => go(1)}><Icon name="chevronRight" /></button>
-        </>
-      )}
-      <figure>
-        <img key={shot.src} src={img(shot.src)} alt={`${project.title}: ${shot.alt}`} />
-        <figcaption className="text-center text-sm">
-          <span className="font-semibold">{project.title}</span>
-          <span className="opacity-70"> · {shot.alt}</span>
-          {many && <span className="font-mono ml-3 text-xs opacity-70">{index + 1} / {shots.length}</span>}
-        </figcaption>
-      </figure>
-    </dialog>
-  );
-}
-
-// Small table diagram for projects that are a database design.
-function Schema({ tables }) {
-  return (
-    <div className="cover schema" role="img" aria-label={`Database tables: ${tables.join(', ')}`}>
-      <div className="flex flex-wrap items-center justify-center gap-2.5">
-        {tables.map((t, i) => (
-          <div key={t} className="flex items-center gap-2.5">
-            <div className="schema-table text-left">
-              <p className="px-2.5 py-1 text-[11px] font-semibold">{t}</p>
-              <p className="font-mono px-2.5 pt-1.5 text-[10px] text-muted">id PK</p>
-              <p className="font-mono px-2.5 pb-1.5 text-[10px] text-muted">{i === 0 ? 'name' : 'ref_id FK'}</p>
-            </div>
-            {i < tables.length - 1 && <span className="hidden h-px w-3 bg-[rgb(var(--line)/.3)] sm:block" aria-hidden="true" />}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import Lightbox from './Lightbox.jsx';
+import Schema from './Schema.jsx';
 
 function Project({ p, featured, onOpen }) {
   const cover = p.shots[0];
@@ -79,7 +15,7 @@ function Project({ p, featured, onOpen }) {
       {cover ? (
         <button type="button" className="cover" onClick={() => onOpen(p, 0)}
                 aria-label={`Open ${p.shots.length} screenshots of ${p.title}`}>
-          <img src={img(cover.src, true)} alt="" width={cover.w} height={cover.h} loading="lazy" decoding="async"
+          <img src={shotUrl(cover.src, true)} alt="" width={cover.w} height={cover.h} loading="lazy" decoding="async"
                className={cover.contain ? 'contain' : ''} />
           {p.shots.length > 1 && <span className="cover-count"><Icon name="expand" className="h-3.5 w-3.5" />{p.shots.length} screenshots</span>}
         </button>
@@ -92,7 +28,7 @@ function Project({ p, featured, onOpen }) {
           <span className="chip !bg-accent/20 !border-accent/45 font-semibold">{p.kind}</span>
           {p.tech.map((t) => <span key={t} className="chip">{t}</span>)}
         </div>
-        <h3 className="mt-3 text-xl font-semibold">{p.title}</h3>
+        <h3 className="mt-3 text-xl font-semibold"><a href={`/projects/${p.slug}/`} className="hover:text-accent">{p.title}</a></h3>
         <p className="mt-2 text-[15px] leading-relaxed text-fg/80">{p.description}</p>
         <ul className="mt-3 space-y-1 text-sm text-muted">
           {p.highlights.map((h) => (
@@ -102,13 +38,17 @@ function Project({ p, featured, onOpen }) {
           ))}
         </ul>
         <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 text-sm">
+          <a href={`/projects/${p.slug}/`} className="link inline-flex items-center gap-2">
+            Details <Icon name="arrowRight" className="h-4 w-4" />
+            <span className="sr-only">about {p.title}</span>
+          </a>
           <a href={p.repo} target="_blank" rel="noopener" className="link inline-flex items-center gap-2">
-            <Icon name="github" className="h-4 w-4" /> View on GitHub <Icon name="arrowRight" className="h-4 w-4" />
+            <Icon name="github" className="h-4 w-4" /> GitHub
             <span className="sr-only">for {p.title}</span>
           </a>
           {p.video && (
             <a href={p.video} target="_blank" rel="noopener" className="link inline-flex items-center gap-2">
-              <Icon name="play" className="h-4 w-4" /> Watch gameplay
+              <Icon name="play" className="h-4 w-4" /> Gameplay video
               <span className="sr-only">video of {p.title} on YouTube</span>
             </a>
           )}
