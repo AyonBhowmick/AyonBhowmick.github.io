@@ -38,7 +38,7 @@ export const facts = [
   { value: '3.71', label: 'CGPA at AIUB', note: 'out of 4.00' },
   { value: '3', label: 'Conference papers', note: '1 published · 2 accepted' },
   { value: 'IEEE', label: 'Student Member', note: 'AIUB Student Branch · 2026 – Present' },
-  { value: '8', label: 'Projects', note: 'software · data science · deep learning' },
+  { value: '9', label: 'Projects', note: 'software · data science · deep learning' },
 ];
 
 export const navLinks = [
@@ -148,6 +148,22 @@ export const projects = [
     ],
   },
   {
+    title: 'MotoHub E-Commerce Platform',
+    slug: 'motohub-ecommerce', // page address: /projects/motohub-ecommerce/
+    kind: 'Full-stack web (team)',
+    tech: ['Next.js', 'TypeScript', 'Supabase'],
+    description:
+      'A full-stack motorcycle parts store for Bangladesh with fitment search, checkout, bike-wash booking and an admin panel. I collaborated on the build and wrote the product requirements and technical documentation.',
+    highlights: ['Product Requirements Document with 80+ requirements', 'Fitment search: parts filtered by your bike', 'Checkout and bike-wash booking flows'],
+    demo: 'https://motovault-phi.vercel.app', // live site (no public repo)
+    shots: [
+      { src: 'motohub-1', alt: 'Home page with fitment search', w: 800, h: 500 },
+      { src: 'motohub-2', alt: 'Shop with filters', w: 800, h: 500 },
+      { src: 'motohub-3', alt: 'Product page', w: 800, h: 500 },
+      { src: 'motohub-4', alt: 'Bike-wash booking', w: 800, h: 500 },
+    ],
+  },
+  {
     title: 'Hockey Win Percentage Prediction',
     slug: 'hockey-win-percentage-prediction', // page address: /projects/hockey-win-percentage-prediction/
     kind: 'Data science',
@@ -183,9 +199,9 @@ export const projects = [
     title: 'Loan Approval Data Analysis',
     slug: 'loan-approval-data-analysis', // page address: /projects/loan-approval-data-analysis/
     kind: 'Data analysis',
-    tech: ['R', 'tidyverse', 'ggplot2'],
+    tech: ['R', 'tidyverse', 'ggplot2', 'caret'],
     description:
-      'A 15-step data preparation and exploratory analysis pipeline in R that cleans 4,269 loan applications and finds what drives approval.',
+      'Messy loan data made approval decisions hard to analyse. I built an R pipeline that cleans, transforms and balances 4,269 applications without data leakage, then used statistics and charts to find what drives approval.',
     highlights: ['Missing values, duplicates, outliers and class imbalance handled', 'CIBIL score is the strongest factor (median 710 vs 430)', 'Income and education barely change approval'],
     repo: 'https://github.com/AyonBhowmick/Loan_Approval_Data_Analysis',
     shots: [
@@ -261,11 +277,11 @@ export const projects = [
 // icon: one of code, ai, database, flask, network, tool (see components/Icon.jsx)
 export const skills = [
   { title: 'Programming', icon: 'code', items: ['Python', 'R', 'C++', 'C#', 'Java', 'JavaScript', 'PHP'] },
-  { title: 'AI / Machine Learning', icon: 'ai', items: ['PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'SHAP', 'Grad-CAM', 'tidyverse', 'ggplot2', 'caret'] },
-  { title: 'Web & Databases', icon: 'database', items: ['HTML', 'CSS', '.NET', 'Windows Forms', 'MySQL', 'MongoDB', 'SQL Server', 'Oracle SQL'] },
-  { title: 'Testing & QA', icon: 'flask', items: ['Manual testing', 'API testing (Postman)', 'Test case design', 'Selenium', 'SQA'] },
-  { title: 'Networking', icon: 'network', items: ['TCP/IP', 'OSI', 'Subnetting', 'VLANs', 'OSPF', 'Packet Tracer'] },
-  { title: 'Tools & OS', icon: 'tool', items: ['Git', 'GitHub', 'VS Code', 'Jupyter', 'Google Colab', 'Windows', 'Linux'] },
+  { title: 'AI/ML & Data', icon: 'ai', items: ['PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'Data Cleaning', 'EDA', 'Data Visualization', 'SHAP', 'Grad-CAM'] },
+  { title: 'Web & Software', icon: 'code', items: ['HTML', 'CSS', 'React', 'Next.js', 'Tailwind CSS', '.NET', 'Windows Forms', 'Java Swing'] },
+  { title: 'Databases', icon: 'database', items: ['SQL', 'MySQL', 'MongoDB', 'Microsoft SQL Server', 'Oracle SQL', 'Supabase'] },
+  { title: 'Testing & QA', icon: 'flask', items: ['Manual testing', 'REST API testing (Postman)', 'Test case design', 'Selenium', 'SQA'] },
+  { title: 'Tools & DevOps', icon: 'tool', items: ['Git', 'GitHub', 'GitHub Actions', 'Vercel', 'VS Code', 'RStudio', 'Jupyter', 'Google Colab', 'Windows', 'Linux'] },
 ];
 
 export const education = [

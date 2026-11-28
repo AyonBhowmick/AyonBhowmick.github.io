@@ -61,11 +61,13 @@ export default async function ProjectPage({ params }) {
               ))}
             </ul>
             <div className="mt-6 flex flex-col gap-3">
+{p.repo && (
               <a href={p.repo} target="_blank" rel="noopener" className="btn btn-primary">
                 <Icon name="github" className="h-4 w-4" /> Source code on GitHub
               </a>
+              )}
               {p.demo && (
-                <a href={p.demo} target="_blank" rel="noopener" className="btn btn-ghost">
+                <a href={p.demo} target="_blank" rel="noopener" className={`btn ${p.repo ? 'btn-ghost' : 'btn-primary'}`}>
                   <Icon name="external" className="h-4 w-4" /> Open live demo
                 </a>
               )}

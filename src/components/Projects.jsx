@@ -42,10 +42,12 @@ function Project({ p, featured, onOpen }) {
             Details <Icon name="arrowRight" className="h-4 w-4" />
             <span className="sr-only">about {p.title}</span>
           </a>
+{p.repo && (
           <a href={p.repo} target="_blank" rel="noopener" className="link inline-flex items-center gap-2">
             <Icon name="github" className="h-4 w-4" /> GitHub
             <span className="sr-only">for {p.title}</span>
           </a>
+          )}
           {p.demo && (
             <a href={p.demo} target="_blank" rel="noopener" className="link inline-flex items-center gap-2">
               <Icon name="external" className="h-4 w-4" /> Live demo
