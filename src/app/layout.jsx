@@ -5,7 +5,7 @@ import Footer from '../components/Footer.jsx';
 import Analytics from '../components/Analytics.jsx';
 
 const description =
-  'Ayon Kumar Bhowmick Ovi: CSE student at AIUB (CGPA 3.71) building software and doing explainable machine-learning research, with 3 conference papers (1 published, 2 accepted) and 5 projects.';
+  'Ayon Kumar Bhowmick Ovi: CSE student at AIUB (CGPA 3.71) building software and doing explainable machine-learning research, with 3 conference papers (1 published, 2 accepted) and 8 projects in software, data science and deep learning.';
 
 export const metadata = {
   metadataBase: new URL(site.url),

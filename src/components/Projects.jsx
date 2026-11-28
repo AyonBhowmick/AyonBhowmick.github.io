@@ -46,6 +46,12 @@ function Project({ p, featured, onOpen }) {
             <Icon name="github" className="h-4 w-4" /> GitHub
             <span className="sr-only">for {p.title}</span>
           </a>
+          {p.demo && (
+            <a href={p.demo} target="_blank" rel="noopener" className="link inline-flex items-center gap-2">
+              <Icon name="external" className="h-4 w-4" /> Live demo
+              <span className="sr-only">of {p.title}</span>
+            </a>
+          )}
           {p.video && (
             <a href={p.video} target="_blank" rel="noopener" className="link inline-flex items-center gap-2">
               <Icon name="play" className="h-4 w-4" /> Gameplay video
@@ -62,9 +68,9 @@ export default function Projects() {
   const [viewer, setViewer] = useState(null); // { project, index }
   return (
     <Section id="projects" number="03" label="Projects" title="Things I've built"
-             intro="Course and personal projects across desktop, web, databases and graphics. All the code is on GitHub.">
+             intro="Course and personal projects in software, data science and deep learning. All the code is on GitHub.">
       <div className="grid gap-5 md:grid-cols-2">
-        {projects.map((p, i) => <Project key={p.title} p={p} featured={i === 0} onOpen={(project, index) => setViewer({ project, index })} />)}
+        {projects.map((p, i) => <Project key={p.title} p={p} featured={i === 0 || (i === projects.length - 1 && projects.length % 2 === 0)} onOpen={(project, index) => setViewer({ project, index })} />)}
       </div>
       {viewer && (
         <Lightbox viewer={viewer} onIndex={(index) => setViewer((v) => ({ ...v, index }))} onClose={() => setViewer(null)} />

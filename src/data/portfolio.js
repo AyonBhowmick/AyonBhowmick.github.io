@@ -38,7 +38,7 @@ export const facts = [
   { value: '3.71', label: 'CGPA at AIUB', note: 'out of 4.00' },
   { value: '3', label: 'Conference papers', note: '1 published · 2 accepted' },
   { value: 'IEEE', label: 'Student Member', note: 'AIUB Student Branch · 2026 – Present' },
-  { value: '5', label: 'Software projects', note: 'desktop · web · game · database' },
+  { value: '8', label: 'Projects', note: 'software · data science · deep learning' },
 ];
 
 export const navLinks = [
@@ -131,11 +131,12 @@ export const projects = [
     title: 'SkillSwap Connect',
     slug: 'skillswap-connect', // page address: /projects/skillswap-connect/
     kind: 'Web platform',
-    tech: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
+    tech: ['PHP', 'MongoDB', 'JavaScript', 'HTML', 'CSS'],
     description:
       'A web platform that connects learners and mentors for skill exchange and paid courses, with separate roles for Learners, Mentors and Admins.',
     highlights: ['Course requests and messaging', 'Progress tracking', 'Certificate generation'],
     repo: 'https://github.com/AyonBhowmick/SkillSwap-Connect',
+    demo: 'https://skillswap-connect-five.vercel.app', // live demo (optional field)
     shots: [
       { src: 'skillswap-1', alt: 'Home page', w: 800, h: 448 },
       { src: 'skillswap-2', alt: 'Browse and request skills', w: 800, h: 454 },
@@ -144,6 +145,55 @@ export const projects = [
       { src: 'skillswap-5', alt: 'Admin dashboard', w: 800, h: 453 },
       { src: 'skillswap-6', alt: 'User management', w: 800, h: 455 },
       { src: 'skillswap-7', alt: 'Skill swap requests', w: 800, h: 454 },
+    ],
+  },
+  {
+    title: 'Hockey Win Percentage Prediction',
+    slug: 'hockey-win-percentage-prediction', // page address: /projects/hockey-win-percentage-prediction/
+    kind: 'Data science',
+    tech: ['R', 'rvest', 'ggplot2', 'caret', 'Random Forest'],
+    description:
+      'Scraped 582 hockey team-season records (1990–2011) from the web and predicted each team\'s win percentage with regression models in R.',
+    highlights: ['Web scraping with rvest across 6 pages', 'Correlation, outlier and distribution analysis', 'Random Forest R² = 0.984 vs Linear Regression 0.969'],
+    repo: 'https://github.com/AyonBhowmick/Hockey_Win_Percentage_Prediction',
+    shots: [
+      { src: 'hockey-1', alt: 'Random Forest: actual vs predicted', w: 800, h: 500 },
+      { src: 'hockey-2', alt: 'Correlation heatmap', w: 800, h: 689, contain: true },
+      { src: 'hockey-3', alt: 'Goal difference vs win percentage', w: 800, h: 500 },
+      { src: 'hockey-4', alt: 'Random Forest feature importance', w: 800, h: 622, contain: true },
+      { src: 'hockey-5', alt: 'R² comparison of the two models', w: 800, h: 500 },
+    ],
+  },
+  {
+    title: 'Rice Seed Classification with CNNs',
+    slug: 'rice-seed-cnn', // page address: /projects/rice-seed-cnn/
+    kind: 'Deep learning',
+    tech: ['Python', 'PyTorch', 'CNN'],
+    description:
+      'Two CNNs trained from scratch in PyTorch to classify 8 Bangladeshi rice seed varieties (BD RiceSeed dataset), comparing a baseline with a regularised model.',
+    highlights: ['Data augmentation and dropout against overfitting', 'Test accuracy 85.21% → 88.54% with regularisation', 'Per-class F1 up to 0.99'],
+    repo: 'https://github.com/AyonBhowmick/CNN-ASSIGNMENT',
+    shots: [
+      { src: 'cnn-2', alt: 'Accuracy and loss curves', w: 800, h: 529, contain: true },
+      { src: 'cnn-1', alt: 'Training images with and without augmentation', w: 800, h: 308, contain: true },
+      { src: 'cnn-3', alt: 'Confusion matrices of both models', w: 800, h: 332, contain: true },
+    ],
+  },
+  {
+    title: 'Loan Approval Data Analysis',
+    slug: 'loan-approval-data-analysis', // page address: /projects/loan-approval-data-analysis/
+    kind: 'Data analysis',
+    tech: ['R', 'tidyverse', 'ggplot2'],
+    description:
+      'A 15-step data preparation and exploratory analysis pipeline in R that cleans 4,269 loan applications and finds what drives approval.',
+    highlights: ['Missing values, duplicates, outliers and class imbalance handled', 'CIBIL score is the strongest factor (median 710 vs 430)', 'Income and education barely change approval'],
+    repo: 'https://github.com/AyonBhowmick/Loan_Approval_Data_Analysis',
+    shots: [
+      { src: 'loan-1', alt: 'Income vs loan amount', w: 800, h: 466 },
+      { src: 'loan-2', alt: 'CIBIL score by loan status', w: 506, h: 547, contain: true },
+      { src: 'loan-3', alt: 'Data preparation workflow', w: 800, h: 113, contain: true },
+      { src: 'loan-4', alt: 'Approved vs rejected applications', w: 506, h: 547, contain: true },
+      { src: 'loan-5', alt: 'Income density', w: 800, h: 466 },
     ],
   },
   {
@@ -210,9 +260,9 @@ export const projects = [
 
 // icon: one of code, ai, database, flask, network, tool (see components/Icon.jsx)
 export const skills = [
-  { title: 'Programming', icon: 'code', items: ['Python', 'C++', 'C#', 'Java', 'JavaScript', 'PHP'] },
-  { title: 'AI / Machine Learning', icon: 'ai', items: ['PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'SHAP', 'Grad-CAM'] },
-  { title: 'Web & Databases', icon: 'database', items: ['HTML', 'CSS', '.NET', 'Windows Forms', 'MySQL', 'SQL Server', 'Oracle SQL'] },
+  { title: 'Programming', icon: 'code', items: ['Python', 'R', 'C++', 'C#', 'Java', 'JavaScript', 'PHP'] },
+  { title: 'AI / Machine Learning', icon: 'ai', items: ['PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'SHAP', 'Grad-CAM', 'tidyverse', 'ggplot2', 'caret'] },
+  { title: 'Web & Databases', icon: 'database', items: ['HTML', 'CSS', '.NET', 'Windows Forms', 'MySQL', 'MongoDB', 'SQL Server', 'Oracle SQL'] },
   { title: 'Testing & QA', icon: 'flask', items: ['Manual testing', 'API testing (Postman)', 'Test case design', 'Selenium', 'SQA'] },
   { title: 'Networking', icon: 'network', items: ['TCP/IP', 'OSI', 'Subnetting', 'VLANs', 'OSPF', 'Packet Tracer'] },
   { title: 'Tools & OS', icon: 'tool', items: ['Git', 'GitHub', 'VS Code', 'Jupyter', 'Google Colab', 'Windows', 'Linux'] },
